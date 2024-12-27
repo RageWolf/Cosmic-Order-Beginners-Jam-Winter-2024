@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5nujgcelpg6j"]
 
-[ext_resource type="Script" path="res://src/player_ship.gd" id="1_e4w1i"]
+[ext_resource type="Script" path="res://src/scripts/player_ship.gd" id="1_e4w1i"]
 [ext_resource type="Texture2D" uid="uid://dl1ey5blo4ag5" path="res://icon.svg" id="1_xerbk"]
 [ext_resource type="PackedScene" uid="uid://g3w75iu5kfp1" path="res://src/projectile.tscn" id="2_6xkug"]
 
@@ -12,11 +12,12 @@ radius = 16.0312
 
 [node name="PlayerShip" type="RigidBody2D" node_paths=PackedStringArray("hit_detector", "fire_rate")]
 gravity_scale = 0.0
+linear_damp = 0.5
 script = ExtResource("1_e4w1i")
 projectile_scene = ExtResource("2_6xkug")
 hit_detector = NodePath("HitDetector")
 thrust_force = 10.0
-turn_speed = 10.0
+turn_speed = 30.0
 fire_rate = NodePath("FireRate")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

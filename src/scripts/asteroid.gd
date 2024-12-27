@@ -42,8 +42,8 @@ func spawn_smaller_asteroids() -> void:
 		var direction = Vector2.RIGHT.rotated(random_angle)
 		
 		# Faster speed for smaller asteroids
-		var base_speed = 50.0 + (new_asteroid.size * 50.0)
-		var speed = randf_range(base_speed, base_speed + 50.0)
+		var base_speed = 30.0 + (new_asteroid.size * 30.0)
+		var speed = randf_range(base_speed, base_speed + 30.0)
 		new_asteroid.velocity = direction * speed
 		
 		# Random rotation

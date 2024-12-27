@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0u0p41h34jph"]
+[gd_scene load_steps=3 format=3 uid="uid://c1jfynxqjh452"]
 
 [ext_resource type="PackedScene" uid="uid://b5nujgcelpg6j" path="res://src/player_ship.tscn" id="1_j7hx1"]
 [ext_resource type="PackedScene" uid="uid://c84ynauggy08x" path="res://src/asteroid_spawner.tscn" id="2_jud8f"]
@@ -7,7 +7,5 @@
 
 [node name="PlayerShip" parent="." instance=ExtResource("1_j7hx1")]
 position = Vector2(298, 384)
-linear_damp = 0.5
-turn_speed = 40.0
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource("2_jud8f")]
