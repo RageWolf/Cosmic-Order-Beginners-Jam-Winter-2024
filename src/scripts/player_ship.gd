@@ -1,0 +1,1 @@
+class_name PlayerShip extends CharacterBody2D
