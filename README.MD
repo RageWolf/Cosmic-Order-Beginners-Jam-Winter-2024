@@ -12,9 +12,10 @@
 The Star navigation system is very dynamic and you shouldn't need to adjust the code in order to add levels/nodes or to adjust nodes. Everything can be adjusted in the Inspector.
 
 ### Adding levels
-Easiest thing to do here is to duplicate the level 1 `space.tscn` and move or adjust the location nodes.
+Easiest thing to do here is to duplicate the level 1 `space.tscn` and move or adjust the location nodes. Any scene that has the `space.gd` script + some `LocationNode`s + a `SpacePlayer` will become a space navigation scene.
 Levels NEED:
 - A LocationNode named simply "LocationNode". All other nodes can be named whatever you like.
+- The "LocationNode" is the starting node for the level and the player will warp to this node when the scene loads.
 - One of the location nodes needs to have the `final_node` property ticked on in the inspector.
 
 
