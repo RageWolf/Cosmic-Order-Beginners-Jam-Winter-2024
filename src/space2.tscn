@@ -32,7 +32,7 @@ position = Vector2(340, 378)
 departures = [NodePath("../LocationNode6")]
 
 [node name="LocationNode10" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
-position = Vector2(478, 197)
+position = Vector2(472, 282)
 departures = [NodePath("../LocationNode7")]
 
 [node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
