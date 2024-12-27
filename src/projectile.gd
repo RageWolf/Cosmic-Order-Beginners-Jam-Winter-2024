@@ -11,5 +11,6 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Asteroid:
+		area.call_deferred("spawn_smaller_asteroids")
 		area.queue_free()
 		queue_free()

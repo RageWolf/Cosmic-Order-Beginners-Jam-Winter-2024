@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func on_spawn_rate_timeout() -> void:
 	var asteroid: Asteroid = asteroid_scene.instantiate()
+	asteroid.size = randi_range(0, 2)
 	get_parent().add_child(asteroid)
 	
 	# Choose a random side (0: top, 1: right, 2: bottom, 3: left)
@@ -30,6 +31,7 @@ func on_spawn_rate_timeout() -> void:
 			spawn_pos = Vector2(-spawn_margin, randf_range(0, viewport_size.y))
 	
 	asteroid.position = spawn_pos
+	
 	
 	# Calculate direction towards center with some randomness
 	var direction = (viewport_size / 2 - spawn_pos).normalized()
