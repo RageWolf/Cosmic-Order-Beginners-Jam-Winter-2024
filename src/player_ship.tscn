@@ -13,9 +13,6 @@ size = Vector2(6.5, 4)
 scale = Vector2(2, 2)
 script = ExtResource("1_5x0oy")
 
-[node name="Placeholder_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_a62ij")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1.25)
 shape = SubResource("RectangleShape2D_k6ca2")
@@ -23,3 +20,10 @@ shape = SubResource("RectangleShape2D_k6ca2")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(7.75, 3)
 shape = SubResource("RectangleShape2D_305no")
+
+[node name="Placeholder_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_a62ij")
+
+[node name="BodyAnimationTree" type="AnimationTree" parent="."]
+
+[node name="ThrustersAnimationTree" type="AnimationTree" parent="."]

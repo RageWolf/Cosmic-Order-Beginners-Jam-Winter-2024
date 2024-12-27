@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkwc06vasxl2t"]
+[gd_scene load_steps=6 format=3 uid="uid://bkwc06vasxl2t"]
 
 [ext_resource type="Script" path="res://src/scripts/asteroid_minigame.gd" id="1_ow8g8"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jgd44"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8w7rq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6cu8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_np4x8"]
+
 [node name="AsteroidMinigame" type="Node2D"]
 script = ExtResource("1_ow8g8")
+
+[node name="Screen Collision" type="StaticBody2D" parent="."]
+
+[node name="ScreenBorderUp" type="CollisionShape2D" parent="Screen Collision"]
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_jgd44")
+
+[node name="ScreenBorderDown" type="CollisionShape2D" parent="Screen Collision"]
+position = Vector2(0, 480)
+shape = SubResource("WorldBoundaryShape2D_8w7rq")
+
+[node name="ScreenBorderLeft" type="CollisionShape2D" parent="Screen Collision"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_t6cu8")
+
+[node name="ScreenBorderRight" type="CollisionShape2D" parent="Screen Collision"]
+position = Vector2(640, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_np4x8")
