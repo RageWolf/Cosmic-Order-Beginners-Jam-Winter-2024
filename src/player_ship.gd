@@ -22,10 +22,23 @@ func _process(delta) -> void:
 	
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		shoot()
+	
+	# Screen wrapping
+	var viewport_size = get_viewport_rect().size
+	var wrap_margin = 25.0
+	
+	if global_position.x < 0 - wrap_margin:
+		global_position.x = viewport_size.x
+	elif global_position.x > viewport_size.x + wrap_margin:
+		global_position.x = 0
+	
+	if global_position.y < 0 - wrap_margin:
+		global_position.y = viewport_size.y
+	elif global_position.y > viewport_size.y + wrap_margin:
+		global_position.y = 0
 
 func on_fire_rate_timeout() -> void:
 	can_shoot = true
-
 
 func shoot() -> void:
 	var projectile = projectile_scene.instantiate()
