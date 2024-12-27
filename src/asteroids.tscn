@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0u0p41h34jph"]
+
+[ext_resource type="PackedScene" uid="uid://b5nujgcelpg6j" path="res://src/player_ship.tscn" id="1_j7hx1"]
+
+[node name="Asteroids" type="Node2D"]
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_j7hx1")]
+position = Vector2(298, 384)
+linear_damp = 0.5
+turn_speed = 40.0
