@@ -2,6 +2,7 @@ extends RigidBody2D
 class_name PlayerShip
 
 @export var projectile_scene: PackedScene
+@export var hit_detector: Area2D
 @export var thrust_force: float = 100
 @export var turn_speed: float = 100
 @export var fire_rate: Timer
@@ -12,7 +13,7 @@ var can_shoot: bool
 func _ready() -> void:
 	can_shoot = true
 	fire_rate.timeout.connect(on_fire_rate_timeout)
-
+	hit_detector.area_entered.connect(on_hit_detector_area_entered)
 func _process(delta) -> void:
 	turn_direction = Input.get_axis("turn_right", "turn_left")
 	apply_torque(turn_direction * turn_speed)
@@ -47,3 +48,7 @@ func shoot() -> void:
 	projectile.global_rotation = global_rotation
 	can_shoot = false
 	fire_rate.start()
+
+func on_hit_detector_area_entered(area: Area2D) -> void:
+	if area is Asteroid:
+		print("hit an asteroid")

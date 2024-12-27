@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5nujgcelpg6j"]
+[gd_scene load_steps=6 format=3 uid="uid://b5nujgcelpg6j"]
 
 [ext_resource type="Script" path="res://src/player_ship.gd" id="1_e4w1i"]
 [ext_resource type="Texture2D" uid="uid://dl1ey5blo4ag5" path="res://icon.svg" id="1_xerbk"]
@@ -7,10 +7,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fe1hk"]
 size = Vector2(32, 32)
 
-[node name="PlayerShip" type="RigidBody2D" node_paths=PackedStringArray("fire_rate")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_72ec2"]
+radius = 16.0312
+
+[node name="PlayerShip" type="RigidBody2D" node_paths=PackedStringArray("hit_detector", "fire_rate")]
 gravity_scale = 0.0
 script = ExtResource("1_e4w1i")
 projectile_scene = ExtResource("2_6xkug")
+hit_detector = NodePath("HitDetector")
 thrust_force = 10.0
 turn_speed = 10.0
 fire_rate = NodePath("FireRate")
@@ -24,3 +28,8 @@ shape = SubResource("RectangleShape2D_fe1hk")
 
 [node name="FireRate" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="HitDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetector"]
+shape = SubResource("CircleShape2D_72ec2")
