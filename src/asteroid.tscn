@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://165e4hs8gjsx"]
+
+[ext_resource type="Texture2D" uid="uid://dehnl6dmt7tt1" path="res://PNG/asteroïd big.png" id="1_ixs4q"]
+[ext_resource type="Script" path="res://src/asteroid.gd" id="1_syfsk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbyjc"]
+radius = 9.0
+
+[node name="Asteroid" type="Area2D" node_paths=PackedStringArray("timer")]
+script = ExtResource("1_syfsk")
+timer = NodePath("MaxLifeTime")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ixs4q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cbyjc")
+
+[node name="MaxLifeTime" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
