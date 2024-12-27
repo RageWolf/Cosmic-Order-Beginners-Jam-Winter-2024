@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj3chirbqe5ej"]
+
+[ext_resource type="Script" path="res://src/scripts/space.gd" id="1_m4aiq"]
+[ext_resource type="PackedScene" uid="uid://cwvebe2fhtxxe" path="res://src/location_node.tscn" id="2_8xt1u"]
+[ext_resource type="PackedScene" uid="uid://1pgur1vtdyjv" path="res://src/space_player.tscn" id="3_mm0ol"]
+
+[node name="Space" type="Node2D"]
+script = ExtResource("1_m4aiq")
+level_name = "Space level 1"
+
+[node name="LocationNode" parent="." instance=ExtResource("2_8xt1u")]
+position = Vector2(61, 91)
+
+[node name="Planet Butt Heads" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
+position = Vector2(159, 197)
+departures = [NodePath("../LocationNode")]
+
+[node name="LocationNode4" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
+position = Vector2(214, 72)
+departures = [NodePath("../LocationNode")]
+
+[node name="LocationNode6" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
+position = Vector2(213, 306)
+departures = [NodePath("../Planet Butt Heads")]
+
+[node name="LocationNode7" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
+position = Vector2(330, 190)
+departures = [NodePath("../Planet Butt Heads")]
+
+[node name="LocationNode9" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
+position = Vector2(340, 378)
+departures = [NodePath("../LocationNode6")]
+
+[node name="LocationNode10" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
+position = Vector2(478, 197)
+departures = [NodePath("../LocationNode7")]
+
+[node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
+position = Vector2(514, 386)
+departures = [NodePath("../LocationNode9"), NodePath("../LocationNode10")]
+
+[node name="SpacePlayer" parent="." instance=ExtResource("3_mm0ol")]
+speed = 0.1
+
+[node name="ReloadScene" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 3.0
+offset_right = 637.0
+offset_bottom = 34.0
+text = "Reload Scene"
+
+[node name="Load Ship Scene" type="Button" parent="."]
+offset_left = 505.0
+offset_top = 37.0
+offset_right = 638.0
+offset_bottom = 68.0
+text = "Load Ship Scene"
+
+[node name="Load Minigame" type="Button" parent="."]
+offset_left = 503.0
+offset_top = 71.0
+offset_right = 638.0
+offset_bottom = 102.0
+text = "Load Minigame"
+
+[node name="Level" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 117.0
+offset_bottom = 37.0
+text = "Space Level 2"
+
+[node name="Next level" type="Button" parent="."]
+visible = false
+offset_left = 498.0
+offset_top = 439.0
+offset_right = 627.0
+offset_bottom = 470.0
+text = "Go to next level"
+
+[connection signal="destination_reached" from="SpacePlayer" to="." method="_on_space_player_destination_reached"]
+[connection signal="pressed" from="ReloadScene" to="." method="_on_reload_scene_pressed"]
+[connection signal="pressed" from="Load Ship Scene" to="." method="_on_load_ship_scene_pressed"]
+[connection signal="pressed" from="Load Minigame" to="." method="_on_load_minigame_pressed"]
+[connection signal="pressed" from="Next level" to="." method="_on_next_level_pressed"]

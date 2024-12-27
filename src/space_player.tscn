@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://1pgur1vtdyjv"]
+
+[ext_resource type="Script" path="res://src/scripts/space_player.gd" id="1_orfxo"]
+[ext_resource type="Texture2D" uid="uid://dl1ey5blo4ag5" path="res://icon.svg" id="1_yvst2"]
+
+[node name="SpacePlayer" type="Node2D"]
+script = ExtResource("1_orfxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_yvst2")
