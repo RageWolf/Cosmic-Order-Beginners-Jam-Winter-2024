@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx32tc14xnv3t"
-path="res://.godot/imported/asteroïd big.png-c9da2eab544463f2b81fea6d6e954ccf.ctex"
+uid="uid://dot185xr6xxb7"
+path="res://.godot/imported/gas giant.png-effd9ad8255b40c34f0fb6f5c5ab9f2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/asteroïd big.png"
-dest_files=["res://.godot/imported/asteroïd big.png-c9da2eab544463f2b81fea6d6e954ccf.ctex"]
+source_file="res://PNG/gas giant.png"
+dest_files=["res://.godot/imported/gas giant.png-effd9ad8255b40c34f0fb6f5c5ab9f2e.ctex"]
 
 [params]
 

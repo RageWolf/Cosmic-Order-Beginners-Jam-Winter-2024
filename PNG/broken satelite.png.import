@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx32tc14xnv3t"
-path="res://.godot/imported/asteroïd big.png-c9da2eab544463f2b81fea6d6e954ccf.ctex"
+uid="uid://h3818gut0c1c"
+path="res://.godot/imported/broken satelite.png-04f9d3cd1906176e2960faf6f941f701.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/asteroïd big.png"
-dest_files=["res://.godot/imported/asteroïd big.png-c9da2eab544463f2b81fea6d6e954ccf.ctex"]
+source_file="res://PNG/broken satelite.png"
+dest_files=["res://.godot/imported/broken satelite.png-04f9d3cd1906176e2960faf6f941f701.ctex"]
 
 [params]
 

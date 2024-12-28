@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx32tc14xnv3t"
-path="res://.godot/imported/asteroïd big.png-c9da2eab544463f2b81fea6d6e954ccf.ctex"
+uid="uid://bkhj55plik772"
+path="res://.godot/imported/black hole.png-e8064d97f363c2b4aacefb836af7fc60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/asteroïd big.png"
-dest_files=["res://.godot/imported/asteroïd big.png-c9da2eab544463f2b81fea6d6e954ccf.ctex"]
+source_file="res://PNG/black hole.png"
+dest_files=["res://.godot/imported/black hole.png-e8064d97f363c2b4aacefb836af7fc60.ctex"]
 
 [params]
 

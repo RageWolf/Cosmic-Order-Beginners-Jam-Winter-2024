@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx32tc14xnv3t"
-path="res://.godot/imported/asteroïd big.png-c9da2eab544463f2b81fea6d6e954ccf.ctex"
+uid="uid://db8dmsf0ql602"
+path="res://.godot/imported/asteroïd chain.png-69f6a31c07152b1f8fd45ea83643ebac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/asteroïd big.png"
-dest_files=["res://.godot/imported/asteroïd big.png-c9da2eab544463f2b81fea6d6e954ccf.ctex"]
+source_file="res://PNG/asteroïd chain.png"
+dest_files=["res://.godot/imported/asteroïd chain.png-69f6a31c07152b1f8fd45ea83643ebac.ctex"]
 
 [params]
 
