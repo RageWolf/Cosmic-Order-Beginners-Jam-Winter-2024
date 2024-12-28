@@ -4,6 +4,7 @@ class_name LocationNode
 # Nodes the player can travel FROM
 @export var departures: Array[LocationNode]
 @export var is_final_node: bool = false
+@export var event: PackedScene
 
 var player_present: bool = false
 
@@ -18,8 +19,6 @@ func show_paths() ->void:
 	var path:Line2D = $PathingLine
 	path.hide()
 	for node in departures:
-		print(name)
-		print(node.name)
 		
 		if node.player_present:
 			path.points[1] = to_local(node.global_position)

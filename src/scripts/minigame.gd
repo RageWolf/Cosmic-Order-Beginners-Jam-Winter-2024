@@ -1,4 +1,6 @@
-extends Node2D
+class_name Minigame extends Node2D
+
+
 
 
 func _on_button_pressed() -> void:

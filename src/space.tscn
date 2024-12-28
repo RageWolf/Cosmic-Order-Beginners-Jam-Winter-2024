@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd6c2qcymkwia"]
+[gd_scene load_steps=7 format=3 uid="uid://dd6c2qcymkwia"]
 
 [ext_resource type="Script" path="res://src/scripts/space.gd" id="1_hx38a"]
 [ext_resource type="PackedScene" uid="uid://cwvebe2fhtxxe" path="res://src/location_node.tscn" id="1_wrkrb"]
 [ext_resource type="PackedScene" uid="uid://dj3chirbqe5ej" path="res://src/space2.tscn" id="2_4be80"]
 [ext_resource type="PackedScene" uid="uid://1pgur1vtdyjv" path="res://src/space_player.tscn" id="3_lrwrr"]
+[ext_resource type="PackedScene" uid="uid://bkwc06vasxl2t" path="res://src/asteroid_minigame.tscn" id="4_rhjmr"]
+[ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="5_b6kij"]
 
 [node name="Space" type="Node2D"]
 script = ExtResource("1_hx38a")
 level_name = "Space level 1"
 next_level = ExtResource("2_4be80")
+
+[node name="Background" type="Sprite2D" parent="."]
 
 [node name="LocationNode" parent="." instance=ExtResource("1_wrkrb")]
 position = Vector2(70, 236)
@@ -44,6 +48,7 @@ departures = [NodePath("../LocationNode7")]
 [node name="LocationNode3" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(150, 151)
 departures = [NodePath("../LocationNode")]
+event = ExtResource("4_rhjmr")
 
 [node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(591, 235)
@@ -53,44 +58,6 @@ is_final_node = true
 [node name="SpacePlayer" parent="." instance=ExtResource("3_lrwrr")]
 speed = 0.1
 
-[node name="ReloadScene" type="Button" parent="."]
-offset_left = 504.0
-offset_top = 3.0
-offset_right = 637.0
-offset_bottom = 34.0
-text = "Reload Scene"
-
-[node name="Load Ship Scene" type="Button" parent="."]
-offset_left = 505.0
-offset_top = 37.0
-offset_right = 638.0
-offset_bottom = 68.0
-text = "Load Ship Scene"
-
-[node name="Load Minigame" type="Button" parent="."]
-offset_left = 503.0
-offset_top = 71.0
-offset_right = 638.0
-offset_bottom = 102.0
-text = "Load Minigame"
-
-[node name="Level" type="Label" parent="."]
-offset_left = 14.0
-offset_top = 14.0
-offset_right = 117.0
-offset_bottom = 37.0
-text = "Space Level 1"
-
-[node name="Next level" type="Button" parent="."]
-visible = false
-offset_left = 501.0
-offset_top = 443.0
-offset_right = 630.0
-offset_bottom = 474.0
-text = "Go to next level"
+[node name="UI" parent="." instance=ExtResource("5_b6kij")]
 
 [connection signal="destination_reached" from="SpacePlayer" to="." method="_on_space_player_destination_reached"]
-[connection signal="pressed" from="ReloadScene" to="." method="_on_reload_scene_pressed"]
-[connection signal="pressed" from="Load Ship Scene" to="." method="_on_load_ship_scene_pressed"]
-[connection signal="pressed" from="Load Minigame" to="." method="_on_load_minigame_pressed"]
-[connection signal="pressed" from="Next level" to="." method="_on_next_level_pressed"]

@@ -44,38 +44,16 @@ func travel(new_pos: Vector2, destination_node: LocationNode) -> void:
 		$SpacePlayer.destination = new_pos
 		$SpacePlayer.stopped = false
 		self.arriving_node = destination_node
-		$"Load Minigame".hide()
-		$"Load Ship Scene".hide()
+		
 	else:
 		print("Not enough resources to travel!")
 
 #Player has arrived at the destination node
 func _on_space_player_destination_reached() -> void:
-	arriving_node.finish_travel()
 	G.current_space_location = arriving_node.name
-	$"Load Minigame".show()
-	$"Load Ship Scene".show()
+	arriving_node.finish_travel()
+	if arriving_node.event:
+		get_tree().change_scene_to_packed(arriving_node.event)
 	if arriving_node.is_final_node:
-		$"Next level".show()
-
-# ****DEBUG****
-# REMOVE ME
-func _on_reload_scene_pressed() -> void:
-	G.current_space_location = ""
-	get_tree().reload_current_scene()
-
-# ****DEBUG****
-# REMOVE ME
-func _on_load_ship_scene_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/ship.tscn")
-
-# ****DEBUG****
-# REMOVE ME
-func _on_load_minigame_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/minigame.tscn")
-
-# ****DEBUG****
-# REMOVE ME
-func _on_next_level_pressed() -> void:
-	G.current_space_location = ""
-	get_tree().change_scene_to_packed(next_level)
+		#$"Next level".show()
+		pass

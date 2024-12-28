@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://fauei1kt6xix"]
+
+[ext_resource type="Script" path="res://src/scripts/ui.gd" id="1_txh5m"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_txh5m")
+
+[node name="FuelContainer" type="HBoxContainer" parent="."]
+offset_left = 7.0
+offset_top = 436.0
+offset_right = 47.0
+offset_bottom = 476.0
+
+[node name="Label" type="Label" parent="FuelContainer"]
+layout_mode = 2
+text = "Fuel
+"
+
+[node name="Fuel" type="Label" parent="FuelContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="CreditsContainer" type="HBoxContainer" parent="."]
+offset_left = 86.0
+offset_top = 436.0
+offset_right = 155.0
+offset_bottom = 476.0
+
+[node name="Label" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Credits" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="DaysContainer" type="HBoxContainer" parent="."]
+offset_left = 186.0
+offset_top = 436.0
+offset_right = 255.0
+offset_bottom = 476.0
+
+[node name="Label" type="Label" parent="DaysContainer"]
+layout_mode = 2
+text = "Days Left"
+
+[node name="Days" type="Label" parent="DaysContainer"]
+layout_mode = 2
+text = "0"

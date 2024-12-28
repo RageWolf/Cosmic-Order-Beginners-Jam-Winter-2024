@@ -1,0 +1,30 @@
+{
+    "1-1": {
+        "1": {
+            "text": "Scanners indicate that there might be a shorter passage through a black hole, but it looks unstable.",
+            "flag": "1",
+            "options": [
+                {
+                    "text": "Go through the wormhole.",
+                    "flag": "2"
+                },
+                {
+                    "text": "Ignore the wormhole.",
+                    "flag": "3"
+                }
+            ]
+        },
+        "2": {
+            "text": "The gravitational power of the singularity spiked just as you approached the event horizon at the edge of the accretion disc. Once you reached the other side, your ship's diagnostics began to blare, your hull needs some major repairs. You'll need to spend a day fixing it.",
+            "flag": "-1",
+            "outcomes":
+            [
+                {"Days": "-1"}
+            ]
+        },
+        "3": {
+            "text": "You made it out alive, and most importantly with company property intact!",
+            "flag": "-1"
+        }
+    }
+}
