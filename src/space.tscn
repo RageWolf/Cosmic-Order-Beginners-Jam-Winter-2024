@@ -11,47 +11,43 @@ level_name = "Space level 1"
 next_level = ExtResource("2_4be80")
 
 [node name="LocationNode" parent="." instance=ExtResource("1_wrkrb")]
-position = Vector2(61, 91)
+position = Vector2(70, 236)
 
 [node name="LocationNode2" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(77, 237)
-departures = [NodePath("../LocationNode")]
-
-[node name="Planet Butt Heads" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(159, 197)
+position = Vector2(149, 331)
 departures = [NodePath("../LocationNode")]
 
 [node name="LocationNode4" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(214, 72)
-departures = [NodePath("../LocationNode")]
+position = Vector2(241, 237)
+departures = [NodePath("../LocationNode2"), NodePath("../LocationNode3")]
 
 [node name="LocationNode5" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(143, 389)
-departures = [NodePath("../LocationNode2")]
-
-[node name="LocationNode6" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(213, 306)
-departures = [NodePath("../Planet Butt Heads"), NodePath("../LocationNode2")]
-
-[node name="LocationNode7" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(325, 206)
-departures = [NodePath("../Planet Butt Heads")]
-
-[node name="LocationNode8" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(353, 50)
+position = Vector2(336, 328)
 departures = [NodePath("../LocationNode4")]
 
-[node name="LocationNode9" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(344, 425)
-departures = [NodePath("../LocationNode6"), NodePath("../LocationNode5")]
+[node name="LocationNode6" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
+position = Vector2(323, 146)
+departures = [NodePath("../LocationNode4")]
 
-[node name="LocationNode10" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(478, 197)
-departures = [NodePath("../LocationNode7"), NodePath("../LocationNode8")]
+[node name="LocationNode7" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
+position = Vector2(426, 235)
+departures = [NodePath("../LocationNode5"), NodePath("../LocationNode6")]
+
+[node name="LocationNode8" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
+position = Vector2(511, 145)
+departures = [NodePath("../LocationNode7")]
+
+[node name="LocationNode9" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
+position = Vector2(509, 333)
+departures = [NodePath("../LocationNode7")]
+
+[node name="LocationNode3" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
+position = Vector2(150, 151)
+departures = [NodePath("../LocationNode")]
 
 [node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(514, 386)
-departures = [NodePath("../LocationNode9"), NodePath("../LocationNode10")]
+position = Vector2(591, 235)
+departures = [NodePath("../LocationNode9"), NodePath("../LocationNode8")]
 is_final_node = true
 
 [node name="SpacePlayer" parent="." instance=ExtResource("3_lrwrr")]
