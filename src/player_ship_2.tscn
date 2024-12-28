@@ -1,6 +1,6 @@
 [gd_scene load_steps=50 format=3 uid="uid://b88tqwpbtlpfc"]
 
-[ext_resource type="Script" path="res://src/scripts/player_ship.gd" id="1_5x0oy"]
+[ext_resource type="Script" path="res://src/scripts/player_ship_2.gd" id="1_5x0oy"]
 [ext_resource type="Texture2D" uid="uid://bwtdcldhqv0kv" path="res://PNG/ship body.png" id="2_n4wo1"]
 [ext_resource type="Texture2D" uid="uid://dpt414q7k3xoe" path="res://PNG/thruster-sheet.png" id="3_bf1fc"]
 
