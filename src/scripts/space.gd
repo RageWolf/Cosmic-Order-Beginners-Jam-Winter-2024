@@ -2,14 +2,21 @@ extends Node2D
 
 @export var level_name: String = "Default Level Name"
 @export var next_level: PackedScene
+@export var starting_credits: int = 300
+@export var days_left_until_delivery: int = 9
 
 var arriving_node: LocationNode
 
 func _ready() -> void:
 	G.current_level = load(scene_file_path)
+	
+	ResourceManager.reset_resources()
 	print(G.current_space_location)
 	# This will run when the Space scene is loaded as a fresh level
 	if G.current_space_location == "":
+		ResourceManager.add_credits(starting_credits)
+		ResourceManager.add_days(days_left_until_delivery)
+		ResourceManager.add_fuel(4)
 		#Set player_present on the node named "LocationNode"
 		if get_node("LocationNode") and get_node("LocationNode").get("player_present") != null:
 			$LocationNode.player_present = true
@@ -21,7 +28,7 @@ func _ready() -> void:
 				
 	#This will run if you are returning to the space scene from another scene
 	else:
-		var locationNode:LocationNode = get_node(G.current_space_location)
+		var locationNode: LocationNode = get_node(G.current_space_location)
 		locationNode.finish_travel()
 		set_player_pos(locationNode)
 		
@@ -32,12 +39,15 @@ func set_player_pos(node: LocationNode) -> void:
 	$SpacePlayer.stopped = true
 
 # Begin the process of travelling from current node to the new destination
-func travel(new_pos: Vector2, destination_node: LocationNode) ->void:
-	$SpacePlayer.destination = new_pos
-	$SpacePlayer.stopped = false
-	self.arriving_node = destination_node
-	$"Load Minigame".hide()
-	$"Load Ship Scene".hide()
+func travel(new_pos: Vector2, destination_node: LocationNode) -> void:
+	if ResourceManager.spend_travel_resources():
+		$SpacePlayer.destination = new_pos
+		$SpacePlayer.stopped = false
+		self.arriving_node = destination_node
+		$"Load Minigame".hide()
+		$"Load Ship Scene".hide()
+	else:
+		print("Not enough resources to travel!")
 
 #Player has arrived at the destination node
 func _on_space_player_destination_reached() -> void:
