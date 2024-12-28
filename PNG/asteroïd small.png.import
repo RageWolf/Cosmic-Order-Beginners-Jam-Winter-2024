@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4t4op4aolid5"
-path="res://.godot/imported/ship 1 booster-Sheet.png-5dd372247ec81b46799455a85c1364d7.ctex"
+uid="uid://cc7fmmgrlfbv0"
+path="res://.godot/imported/asteroïd small.png-6527426377a1ba4e7c30d480a2ce39f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/ship 1 booster-Sheet.png"
-dest_files=["res://.godot/imported/ship 1 booster-Sheet.png-5dd372247ec81b46799455a85c1364d7.ctex"]
+source_file="res://PNG/asteroïd small.png"
+dest_files=["res://.godot/imported/asteroïd small.png-6527426377a1ba4e7c30d480a2ce39f7.ctex"]
 
 [params]
 
