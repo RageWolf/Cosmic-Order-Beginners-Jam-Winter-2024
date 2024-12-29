@@ -1,7 +1,7 @@
 class_name ShipMinigame extends Node2D
 
-@export var startingPos : Vector2 = Vector2(100,240)
-var player : PlayerShip = preload("res://src/player_ship.tscn").instantiate()
+@export var starting_pos : Vector2 = Vector2(100,240)
+var Player : PlayerShip = preload("res://src/player_ship.tscn").instantiate()
 
 # Base class for all minigames that are played on a
 # sideview with the spaceship, currently only used for
@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn_player() -> void:
-	add_child(player)
-	player.position = startingPos
-	player.visible = true
-	pass
+	add_child(Player)
+	Player.position = starting_pos
+	Player.visible = true
