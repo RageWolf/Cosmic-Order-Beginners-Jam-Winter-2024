@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b88tqwpbtlpfc"]
+[gd_scene load_steps=54 format=3 uid="uid://b88tqwpbtlpfc"]
 
 [ext_resource type="Script" path="res://src/scripts/player_ship_2.gd" id="1_ahuhr"]
 [ext_resource type="Texture2D" uid="uid://bwtdcldhqv0kv" path="res://PNG/ship body.png" id="2_dxuko"]
@@ -314,9 +314,13 @@ tracks/3/keys = {
 "values": [Vector2(-8, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_htcea"]
+resource_name = "damage_taken"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_545q0"]
 _data = {
 "RESET": SubResource("Animation_ap0mp"),
+"damage_taken": SubResource("Animation_htcea"),
 "idle": SubResource("Animation_dmotl"),
 "moving_down": SubResource("Animation_kgxs2"),
 "moving_up": SubResource("Animation_ud26l"),
@@ -705,3 +709,6 @@ shape = SubResource("RectangleShape2D_f7jjs")
 z_index = 11
 position = Vector2(8.25, 3.25)
 shape = SubResource("RectangleShape2D_xxtqp")
+
+[node name="HitInvulTimer" type="Timer" parent="."]
+one_shot = true

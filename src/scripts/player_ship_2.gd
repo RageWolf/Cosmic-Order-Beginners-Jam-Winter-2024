@@ -4,10 +4,12 @@ class_name PlayerShip extends CharacterBody2D
 @export var acceleration : float = 200
 # Value of deceleration should remain between 0 and 1, closer to 1 means faster deceleration
 @export var deceleration : float = 0.6
+var hitInvulnerability : bool = false
 
 @onready var BodyAnimationTree : AnimationTree = $BodyAnimationTree
 @onready var ThrustersAnimationTree : AnimationTree = $ThrustersAnimationTree
 @onready var PlayerHitbox : Hitbox = $Hitbox
+@onready var InvulTimer : Timer = $HitInvulTimer
 
 signal ship_destroyed
 signal ship_out_of_fuel
@@ -15,7 +17,9 @@ signal ship_out_of_fuel
 func _ready() -> void:
 	BodyAnimationTree.active = true
 	ThrustersAnimationTree.active = true
+	hitInvulnerability = false
 	PlayerHitbox.connect("body_entered", _on_hitbox_body_entered)
+	InvulTimer.connect("timeout", _on_invulTimer_timeout)
 
 func _process(delta: float) -> void:
 	animation_update()
@@ -67,15 +71,32 @@ func get_input_direction() -> Vector2:
 	
 	return Vector2(dirX, dirY).normalized()
 
-func _on_hitbox_body_entered(body : Node2D) -> void:
-	if body is Asteroid:
+func take_damage(damage : int, fuel_lost : bool = false) -> void:
+	if !hitInvulnerability:
+		hitInvulnerability = true
+		PlayerHitbox.set_deferred("monitoring",false)
 		# *** TODO *** Implement damage properly when merging
-		G.player_data.hull -= body.damage
-		if body.fuel_damage:
+		G.player_data.hull -= damage
+		if fuel_lost:
 			G.player_data.fuel-=1
+		
+		# *** TODO *** Implement hit animation
+		
 		# *** TODO *** Delete this print when UI is implemented
 		print("Damage taken. Health: ", G.player_data.hull, " Fuel:", G.player_data.fuel)
+		
 		if (G.player_data.hull <= 0):
 			ship_destroyed.emit()
 		if (G.player_data.fuel <= 0):
 			ship_out_of_fuel.emit()
+	
+		InvulTimer.start()
+
+func _on_hitbox_body_entered(body : Node2D) -> void:
+	if body is Asteroid && hitInvulnerability == false:
+		take_damage(body.damage, body.fuel_damage)
+
+func  _on_invulTimer_timeout() -> void:
+	hitInvulnerability = false
+	PlayerHitbox.set_deferred("monitoring",true)
+	pass
