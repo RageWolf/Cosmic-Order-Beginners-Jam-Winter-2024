@@ -1,19 +1,18 @@
 shader_type canvas_item;
 
-uniform vec4 glow_color= vec4(0.0, 1.0, 1.0, 1.0); // Color of the glow
-uniform float glow_intensity = 1.0; // Maximum intensity of the glow
-uniform float pulse_speed = 2.0; // Speed of the pulsing effect
+uniform vec2 effect_position = vec2(0.5, 0.5); // Center of the effect (normalized coordinates)
+uniform float effect_radius = 0.2; // Radius of the effect
 
 void fragment() {
-    // Get the original texture color
-    vec4 original_color = texture(TEXTURE, UV);
+    vec4 base_color = texture(TEXTURE, UV); // Base texture
+    vec4 noise_color = vec4(1.0, 0.0, 0.0, 1.0); // Example effect color (red)
 
-    // Create a pulsating effect
-    float pulse = sin(TIME * pulse_speed) * 0.5 + 0.5; // Pulsates between 0.0 and 1.0
+    // Calculate distance from the center
+    float dist = length(SCREEN_UV - effect_position);
 
-    // Apply glow effect
-    vec4 glow_effect = vec4(glow_color.rgb * pulse * glow_intensity, glow_color.a * pulse);
+    // Create a circular mask
+    float mask = step(effect_radius, dist); // 1.0 outside the radius, 0.0 inside
 
-    // Blend the glow effect with the original texture
-    COLOR = original_color + glow_effect;
+    // Apply the mask: only show the effect inside the radius
+    COLOR = mix(noise_color, base_color, mask);
 }
