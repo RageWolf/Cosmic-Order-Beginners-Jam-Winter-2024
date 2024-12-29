@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xcvcg423m8wg"
-path="res://.godot/imported/Milky_06-512x512.png-a9f995a3878f21adafc3b0577d2d69f3.ctex"
+uid="uid://dc5yyvem4h1ka"
+path="res://.godot/imported/Grainy_06-512x512.png-923dcda9b52c8a0243d693fdf79d8f8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shader/Milky_06-512x512.png"
-dest_files=["res://.godot/imported/Milky_06-512x512.png-a9f995a3878f21adafc3b0577d2d69f3.ctex"]
+source_file="res://Shader/Textures/Grainy_06-512x512.png"
+dest_files=["res://.godot/imported/Grainy_06-512x512.png-923dcda9b52c8a0243d693fdf79d8f8f.ctex"]
 
 [params]
 

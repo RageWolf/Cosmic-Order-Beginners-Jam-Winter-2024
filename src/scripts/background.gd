@@ -3,14 +3,14 @@ extends Sprite2D
 func _ready():
 	# Ensure the node has a ShaderMaterial
 	if not material or not (material is ShaderMaterial):
-		var shader = preload("res://src/flicker.gdshader") # Adjust the path if necessary
+		var shader = preload("res://Shader/flicker.gdshader") # Adjust the path if necessary
 		var shader_material = ShaderMaterial.new()
 		shader_material.shader = shader
 		material = shader_material
 		print("ShaderMaterial created and assigned.")
 	
 	# Load and assign the noise texture
-	var noise_texture = preload("res://Shader/Techno_13-512x512.png") # Ensure the path is correct
+	var noise_texture = preload("res://Shader/Textures/Techno_13-512x512.png") # Ensure the path is correct
 	if noise_texture is Texture:
 		material.set_shader_parameter("noise_texture", noise_texture)
 		print("Noise texture loaded successfully.")

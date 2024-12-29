@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6gfc54utd535"]
 
-[ext_resource type="Shader" path="res://Shader/main.gdshader" id="1_lb1p7"]
-[ext_resource type="Texture2D" uid="uid://bspn6omr240lp" path="res://Shader/Grainy_01-512x512.png" id="2_qiudf"]
+[ext_resource type="Shader" path="res://Shader/Textures/main.gdshader" id="1_lb1p7"]
+[ext_resource type="Texture2D" uid="uid://bspn6omr240lp" path="res://Shader/Textures/Grainy_01-512x512.png" id="2_qiudf"]
 
 [sub_resource type="Gradient" id="Gradient_oadab"]
 offsets = PackedFloat32Array(0.254098, 0.319672, 0.434426, 0.508197, 0.622951, 0.704918, 0.819672)

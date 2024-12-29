@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xv8ly0kjiofp"
-path="res://.godot/imported/Milky_01-512x512.png-3251b03ec0e329cdb405a8e5638c3437.ctex"
+uid="uid://ckjafdcr88s6s"
+path="res://.godot/imported/Techno_01-512x512.png-b9ab1184b1f610cc13e5fbd786764165.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shader/Milky_01-512x512.png"
-dest_files=["res://.godot/imported/Milky_01-512x512.png-3251b03ec0e329cdb405a8e5638c3437.ctex"]
+source_file="res://Shader/Textures/Techno_01-512x512.png"
+dest_files=["res://.godot/imported/Techno_01-512x512.png-b9ab1184b1f610cc13e5fbd786764165.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biblyvfewur8l"
-path="res://.godot/imported/Techno_11-512x512.png-284068e8f75c61619912291f1309fa25.ctex"
+uid="uid://rufhd78omjsu"
+path="res://.godot/imported/Grainy_09-512x512.png-589e16c011970acba3a0011a1953bcfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shader/Techno_11-512x512.png"
-dest_files=["res://.godot/imported/Techno_11-512x512.png-284068e8f75c61619912291f1309fa25.ctex"]
+source_file="res://Shader/Textures/Grainy_09-512x512.png"
+dest_files=["res://.godot/imported/Grainy_09-512x512.png-589e16c011970acba3a0011a1953bcfc.ctex"]
 
 [params]
 

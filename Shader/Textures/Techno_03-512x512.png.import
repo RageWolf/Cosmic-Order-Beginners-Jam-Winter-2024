@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n6ixrglvuwab"
-path="res://.godot/imported/pixelbuddha-studio-rbt8Kj69Va8-unsplash.jpg-1543c86fa70a76a8897e1a29f622db4b.ctex"
+uid="uid://pt4wsrxrl76n"
+path="res://.godot/imported/Techno_03-512x512.png-b17992aa1ab6efd46a9398054b9728ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shader/pixelbuddha-studio-rbt8Kj69Va8-unsplash.jpg"
-dest_files=["res://.godot/imported/pixelbuddha-studio-rbt8Kj69Va8-unsplash.jpg-1543c86fa70a76a8897e1a29f622db4b.ctex"]
+source_file="res://Shader/Textures/Techno_03-512x512.png"
+dest_files=["res://.godot/imported/Techno_03-512x512.png-b17992aa1ab6efd46a9398054b9728ef.ctex"]
 
 [params]
 
