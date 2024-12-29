@@ -5,13 +5,15 @@ extends Node2D
 @export var starting_credits: int = 300
 @export var days_left_until_delivery: int = 9
 
+var floater_scene = load("res://src/floater.tscn")
+
 var arriving_node: LocationNode
 
 func _ready() -> void:
 	G.current_level = load(scene_file_path)
 	
-	ResourceManager.reset_resources()
-	print(G.current_space_location)
+	#ResourceManager.reset_resources()
+	
 	# This will run when the Space scene is loaded as a fresh level
 	if G.current_space_location == "":
 		ResourceManager.add_credits(starting_credits)
@@ -39,18 +41,19 @@ func set_player_pos(node: LocationNode) -> void:
 	$SpacePlayer.stopped = true
 
 # Begin the process of travelling from current node to the new destination
-func travel(new_pos: Vector2, destination_node: LocationNode) -> void:
+func travel(new_pos: Vector2, destination_node: LocationNode, departing_node: LocationNode) -> void:
 	if ResourceManager.spend_travel_resources():
+		departing_node.player_present = false
 		$SpacePlayer.destination = new_pos
 		$SpacePlayer.stopped = false
 		self.arriving_node = destination_node
-		
-	else:
-		print("Not enough resources to travel!")
+
 
 #Player has arrived at the destination node
 func _on_space_player_destination_reached() -> void:
 	G.current_space_location = arriving_node.name
+	G.current_encounter = arriving_node.encounter
+	G.current_encounter_image = arriving_node.encounter_image
 	arriving_node.finish_travel()
 	if arriving_node.event:
 		get_tree().change_scene_to_packed(arriving_node.event)

@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://fauei1kt6xix"]
+[gd_scene load_steps=3 format=3 uid="uid://fauei1kt6xix"]
 
 [ext_resource type="Script" path="res://src/scripts/ui.gd" id="1_txh5m"]
+[ext_resource type="Texture2D" uid="uid://dygtxjlx5xtvh" path="res://PNG/money icon.png" id="2_st8wr"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_txh5m")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -2.0
+offset_top = 436.0
+offset_right = 295.0
+offset_bottom = 483.0
 
 [node name="FuelContainer" type="HBoxContainer" parent="."]
 offset_left = 7.0
@@ -26,9 +33,10 @@ offset_top = 436.0
 offset_right = 155.0
 offset_bottom = 476.0
 
-[node name="Label" type="Label" parent="CreditsContainer"]
+[node name="TextureRect" type="TextureRect" parent="CreditsContainer"]
 layout_mode = 2
-text = "Credits"
+texture = ExtResource("2_st8wr")
+stretch_mode = 3
 
 [node name="Credits" type="Label" parent="CreditsContainer"]
 layout_mode = 2

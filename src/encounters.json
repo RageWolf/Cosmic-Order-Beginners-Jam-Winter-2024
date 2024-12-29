@@ -19,12 +19,112 @@
             "flag": "-1",
             "outcomes":
             [
-                {"Days": "-1"}
+                {"Days": "-2"}
             ]
         },
         "3": {
             "text": "You made it out alive, and most importantly with company property intact!",
             "flag": "-1"
+        }
+    },
+    "1-2": {
+        "1": {
+            "text": "You detect an SOS beacon nearby. It could be a ship in need of help, or it could be pirate bait.",
+            "flag": "1",
+            "options": [
+                {
+                    "text": "Investigate the SOS.",
+                    "flag": "2"
+                },
+                {
+                    "text": "You've got a deadline to meet and no time to waste. This is someone else's problem.",
+                    "flag": "3"
+                }
+            ]
+        },
+        "2": {
+            "text": "You find a ship floating adrift amidst the void of space. Static from your radio changes to that of a panicked male voice.\"Oh thank god! I've been trapped here for ages! Please, I just need a little more fuel to get to the nearest star station. Would you please spare some of your own. I'll make it worth your while.\"",
+            "flag": "2",
+            "options": [
+                {
+                    "text": "Help the man",
+                    "flag": "4"
+                },
+                {
+                    "text": "Don't help him",
+                    "flag": "5"
+                }
+            ]
+        },
+        "3": {
+            "text": "You fire up warp thrusters and blast away towards your next destination.",
+            "flag": "-1"
+        },
+        "4": {
+            "text": "True to his word, after a quick exchange of Helium-3 in his ship's airlock, your desktop notifies you of a transfer of funds to your account. The radio statics once more. \"Thanks stranger! I won't forget this.\" He flies off into the endless expanse, with you all the more richer and no time wasted",
+            "flag": "-1",
+            "outcomes": [
+                {"Credits": "+300"}
+            ]
+        },
+        "5": {
+            "text": "The Universe is a cruel place and you've got your own problems to deal with. Despite his pleas and cries from your radio, you keep flying until the signal is weak enough for him to no longer reach through. Time to get back to work",
+            "flag": "-1"
+        }
+    },
+    "1-3": {
+        "1": {
+            "text": "You pass near an asteroid belt. As you approach closer, a ship reveals itself from behind one of the asteroids. Your warning lights flash, indicating they've got their targeting laser locked onto you. From your radio a gruff voice demands attention.\"Let's make this quick, I've got things to do and no time for it. Cough up your cash and fuel and you'll go away unharmed.\"Refusal would be suicide. You could try to outmaneuver the pirate through the asteroid belt. But it looks dense and your ship could get damaged if you aren't careful.",
+            "flag": "1",
+            "options": [
+                {
+                    "text": "Accept the pirates' demands.",
+                    "flag": "2"
+                },
+                {
+                    "text": "Try to flee the pirate",
+                    "flag": "3"
+                }
+            ]
+        },
+        "2": {
+            "text": "\"Wise choice, don't do nothin stupid now.\"He laughs maniacally as you jettison some of your fuel and transfer your funds to their ship. With glee the pirates ship opens its cargo hold, scoops up the fuel and flies off. Be grateful you still get to live.",
+            "flag": "-1",
+            "outcomes": [
+                {"Fuel": "-1"},
+                {"Credits": "-400"}
+            ]
+        },
+        "3": {
+            "text": "You act quick. You've got things to do and no time for it. You accelerate straight at the pirate and just barely past its ship darting between asteroids as the pirate gives chase with a slew of curses. After what feels like ages of high speed turns and stalls, you finally seem to have lost them. It's just you and the rocks now. It takes a bit of navigating but you safely manage to get out of the asteroid belt and back onto your route.",
+            "flag": "-1"
+        }
+    },
+    "1-4": {
+        "1": {
+            "text": "Out in the distance you notice a faint light that seems like it's getting brighter and brighter towards your ship.  A quick scan reveals that it's a comet and it's heading straight for you, the thing is huge! You'll need to act fast!",
+            "flag": "1",
+            "options": [
+                {
+                    "text": "Fire the ADC",
+                    "flag": "2"
+                },
+                {
+                    "text": "Try to perform evasive maneuvers",
+                    "flag": "3"
+                }
+            ]
+        },
+        "2": {
+            "text": "You power up your ADC just in time to blast the comet away from the ship! The little pieces split off and fragment, bouncing harmlessly off the hull of your ship.",
+            "flag": "-1"
+        },
+        "3": {
+            "text": "Your ship creaks against the sudden movement, just before the comet directly hits your cockpit you just barely manage to pull away. You hear a loud crash and scraping noises next to your ship. The lights flicker and you’re rocked violently back and forth in your seat. Warning notifications are going off all over the place. Your ship is badly damaged, you'll need to take some time to repair it.",
+            "flag": "-1",
+            "outcomes": [
+                {"Days": "-1"}
+            ]
         }
     }
 }

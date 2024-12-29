@@ -5,6 +5,8 @@ class_name LocationNode
 @export var departures: Array[LocationNode]
 @export var is_final_node: bool = false
 @export var event: PackedScene
+@export var encounter: String
+@export var encounter_image: CompressedTexture2D
 
 var player_present: bool = false
 
@@ -35,8 +37,8 @@ func clicked() -> void:
 
 func start_travel(departing_node: LocationNode) -> void:
 	if get_parent().has_method("travel"):
-		departing_node.player_present = false
-		get_parent().travel(position, self)
+		#departing_node.player_present = false
+		get_parent().travel(position, self, departing_node)
 
 func finish_travel() -> void:
 	player_present = true

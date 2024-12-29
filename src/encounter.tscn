@@ -1,23 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://5t08hntggvf1"]
+[gd_scene load_steps=5 format=3 uid="uid://5t08hntggvf1"]
 
 [ext_resource type="Script" path="res://src/scripts/encounter.gd" id="1_1a65w"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="1_8tx74"]
+[ext_resource type="Texture2D" uid="uid://ckisnq57738pa" path="res://src/placeholder/terminal.png" id="3_vc56d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cagdc"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Encounter" type="Node2D"]
 script = ExtResource("1_1a65w")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 726.0
+offset_bottom = 532.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cagdc")
+
+[node name="EncounterImage" type="Sprite2D" parent="."]
+position = Vector2(314, 64)
+scale = Vector2(2, 2)
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("3_vc56d")
+centered = false
 
 [node name="UI" parent="." instance=ExtResource("1_8tx74")]
 
 [node name="EncounterUI" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EncounterUI"]
-offset_left = 86.0
-offset_top = 81.0
-offset_right = 550.0
-offset_bottom = 121.0
+offset_left = 109.0
+offset_top = 131.0
+offset_right = 534.0
+offset_bottom = 232.0
+metadata/_edit_group_ = true
 
 [node name="MainText" type="RichTextLabel" parent="EncounterUI/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
 fit_content = true
 scroll_active = false
 visible_characters_behavior = 1
@@ -25,12 +47,29 @@ visible_characters_behavior = 1
 [node name="Options" type="VBoxContainer" parent="EncounterUI/VBoxContainer"]
 layout_mode = 2
 
-[node name="Outcomes" type="VBoxContainer" parent="EncounterUI/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="EncounterUI/VBoxContainer/Options"]
 layout_mode = 2
+theme_override_constants/margin_top = 12
+
+[node name="Outcomes" type="VBoxContainer" parent="EncounterUI/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="EncounterUI/VBoxContainer/Outcomes"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
 
 [node name="Label" type="Label" parent="EncounterUI/VBoxContainer/Outcomes"]
 layout_mode = 2
 text = "Outcomes:"
+
+[node name="HSeparator" type="HSeparator" parent="EncounterUI/VBoxContainer/Outcomes"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="EncounterUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
 
 [node name="Continue" type="Button" parent="EncounterUI/VBoxContainer"]
 visible = false

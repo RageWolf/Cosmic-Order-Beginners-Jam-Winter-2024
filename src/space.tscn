@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd6c2qcymkwia"]
+[gd_scene load_steps=12 format=3 uid="uid://dd6c2qcymkwia"]
 
 [ext_resource type="Script" path="res://src/scripts/space.gd" id="1_hx38a"]
 [ext_resource type="PackedScene" uid="uid://cwvebe2fhtxxe" path="res://src/location_node.tscn" id="1_wrkrb"]
 [ext_resource type="PackedScene" uid="uid://dj3chirbqe5ej" path="res://src/space2.tscn" id="2_4be80"]
 [ext_resource type="PackedScene" uid="uid://1pgur1vtdyjv" path="res://src/space_player.tscn" id="3_lrwrr"]
-[ext_resource type="PackedScene" uid="uid://bkwc06vasxl2t" path="res://src/asteroid_minigame.tscn" id="4_rhjmr"]
+[ext_resource type="PackedScene" uid="uid://5t08hntggvf1" path="res://src/encounter.tscn" id="4_gdwj1"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="5_b6kij"]
+[ext_resource type="Texture2D" uid="uid://bkhj55plik772" path="res://PNG/black hole.png" id="5_g4w8j"]
+[ext_resource type="Texture2D" uid="uid://h3818gut0c1c" path="res://PNG/broken satelite.png" id="6_8qref"]
+[ext_resource type="Texture2D" uid="uid://db8dmsf0ql602" path="res://PNG/asteroïd chain.png" id="7_hpm5d"]
+[ext_resource type="Texture2D" uid="uid://rha5xufat2rc" path="res://src/placeholder/comet.png" id="8_a2aru"]
+[ext_resource type="PackedScene" uid="uid://75kprkj21umn" path="res://src/shop.tscn" id="9_76dkh"]
 
 [node name="Space" type="Node2D"]
 script = ExtResource("1_hx38a")
@@ -20,22 +25,35 @@ position = Vector2(70, 236)
 [node name="LocationNode2" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(149, 331)
 departures = [NodePath("../LocationNode")]
+event = ExtResource("4_gdwj1")
+encounter = "1-1"
+encounter_image = ExtResource("5_g4w8j")
 
 [node name="LocationNode4" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(241, 237)
 departures = [NodePath("../LocationNode2"), NodePath("../LocationNode3")]
+event = ExtResource("4_gdwj1")
+encounter = "1-2"
+encounter_image = ExtResource("6_8qref")
 
 [node name="LocationNode5" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(336, 328)
 departures = [NodePath("../LocationNode4")]
+event = ExtResource("4_gdwj1")
+encounter = "1-3"
+encounter_image = ExtResource("7_hpm5d")
 
 [node name="LocationNode6" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(323, 146)
 departures = [NodePath("../LocationNode4")]
+event = ExtResource("9_76dkh")
 
 [node name="LocationNode7" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(426, 235)
 departures = [NodePath("../LocationNode5"), NodePath("../LocationNode6")]
+event = ExtResource("4_gdwj1")
+encounter = "1-4"
+encounter_image = ExtResource("8_a2aru")
 
 [node name="LocationNode8" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(511, 145)
@@ -46,9 +64,8 @@ position = Vector2(509, 333)
 departures = [NodePath("../LocationNode7")]
 
 [node name="LocationNode3" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
-position = Vector2(150, 151)
+position = Vector2(150, 143)
 departures = [NodePath("../LocationNode")]
-event = ExtResource("4_rhjmr")
 
 [node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(591, 235)

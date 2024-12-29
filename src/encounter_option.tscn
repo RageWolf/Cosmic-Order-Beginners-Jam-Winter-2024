@@ -6,3 +6,4 @@ offset_bottom = 40.0
 
 [node name="Text" type="Button" parent="."]
 layout_mode = 2
+autowrap_mode = 3

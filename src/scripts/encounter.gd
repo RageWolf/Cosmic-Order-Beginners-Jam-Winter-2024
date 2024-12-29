@@ -16,11 +16,11 @@ var picking_options = false
 
 func _ready() -> void:
 	encounters = json.parse_string(file)
-	print(encounters["1-1"][str(flag)])
-	encounter = encounters["1-1"]
+	encounter = encounters[G.current_encounter]
 	text_displaying = encounter[str(flag)]["text"]
 	main_text.text = text_displaying
 	main_text.visible_characters = 0
+	$EncounterImage.texture = G.current_encounter_image
 	
 func _process(delta: float) -> void:
 	if main_text.visible_characters < len(text_displaying):
@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 			if encounter[str(flag)]["flag"] == "-1":
 				$EncounterUI/VBoxContainer/Continue.show()
 				if encounter[str(flag)].has("outcomes"):
+					$EncounterUI/VBoxContainer/Outcomes.show()
 					for outcome in encounter[str(flag)]["outcomes"]:
 						var label = Label.new()
 						var text = ""
@@ -53,6 +54,7 @@ func _process(delta: float) -> void:
 					$EncounterUI/VBoxContainer/Options.add_child(option_label)
 					index += 1
 
+
 func _on_option_pressed(option_flag):
 	picking_options = false
 	flag = int(option_flag)
@@ -63,9 +65,12 @@ func _on_option_pressed(option_flag):
 		option.queue_free()
 
 
+
 func _on_continue_pressed() -> void:
 	get_tree().change_scene_to_packed(G.current_level)
-	
+
+
+
 func process_outcomes(resource, amount):
 	if resource == "Days":
 		ResourceManager.add_days(amount)
