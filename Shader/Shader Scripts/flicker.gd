@@ -1,4 +1,5 @@
-extends Sprite2D
+extends PanelContainer
+
 
 func _ready():
 	# Ensure the node has a ShaderMaterial

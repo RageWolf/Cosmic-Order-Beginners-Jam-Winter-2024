@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dtwhsm6snbn3i"]
 
-[ext_resource type="Shader" path="res://Shader/ui_shader.gdshader" id="1_x7ftj"]
+[ext_resource type="Shader" path="res://Shader/Shader Scripts/ui_shader.gdshader" id="1_x7ftj"]
 [ext_resource type="Texture2D" uid="uid://col38pbch7jvh" path="res://Shader/Textures/5377541.png" id="2_djmo6"]
 [ext_resource type="Texture2D" uid="uid://n6ixrglvuwab" path="res://Shader/Textures/pixelbuddha-studio-rbt8Kj69Va8-unsplash.jpg" id="2_uf6m3"]
 
@@ -25,7 +25,7 @@ shader_parameter/scaling_factor = 0.9
 shader_parameter/noise_texture = ExtResource("2_uf6m3")
 shader_parameter/rune_texture = ExtResource("2_djmo6")
 
-[node name="Ui_Particles" type="Panel"]
+[node name="Ui_Particles" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,10 +38,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6hpxt")
 
 [node name="Ui_Outline" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_nts4x")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 color = Color(1, 1, 1, 0)

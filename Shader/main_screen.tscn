@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6gfc54utd535"]
 
-[ext_resource type="Shader" path="res://Shader/Textures/main.gdshader" id="1_lb1p7"]
+[ext_resource type="Shader" path="res://Shader/Shader Scripts/static.gdshader" id="1_lb1p7"]
 [ext_resource type="Texture2D" uid="uid://bspn6omr240lp" path="res://Shader/Textures/Grainy_01-512x512.png" id="2_qiudf"]
 
 [sub_resource type="Gradient" id="Gradient_oadab"]
@@ -22,6 +22,7 @@ shader_parameter/speed_factor = 0.5
 shader_parameter/drift_speed = 0.2
 shader_parameter/glitch_intensity = 0.005
 shader_parameter/glitch_chance = 0.1
+shader_parameter/noise_scale = 1.0
 shader_parameter/gradient_texture = SubResource("GradientTexture2D_0gb26")
 shader_parameter/noise_texture = ExtResource("2_qiudf")
 
