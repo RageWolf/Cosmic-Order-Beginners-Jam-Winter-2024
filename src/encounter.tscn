@@ -1,11 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://5t08hntggvf1"]
+[gd_scene load_steps=8 format=3 uid="uid://5t08hntggvf1"]
 
 [ext_resource type="Script" path="res://src/scripts/encounter.gd" id="1_1a65w"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="1_8tx74"]
+[ext_resource type="Shader" path="res://src/flicker.gdshader" id="2_bj31o"]
+[ext_resource type="Texture2D" uid="uid://c0khq6jns4ljm" path="res://Shader/Techno_10-512x512.png" id="3_v6ths"]
 [ext_resource type="Texture2D" uid="uid://ckisnq57738pa" path="res://src/placeholder/terminal.png" id="3_vc56d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cagdc"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6fl1q"]
+shader = ExtResource("2_bj31o")
+shader_parameter/base_color = Vector4(0.05, 0.05, 0.1, 1)
+shader_parameter/glow_intensity = 0.5
+shader_parameter/distortion_strength = 0.02
+shader_parameter/flicker_speed = 3.0
+shader_parameter/noise_scale = 1.5
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+shader_parameter/distortion_frequency = 20.0
+shader_parameter/noise_texture = ExtResource("3_v6ths")
 
 [node name="Encounter" type="Node2D"]
 script = ExtResource("1_1a65w")
@@ -22,6 +35,7 @@ position = Vector2(314, 64)
 scale = Vector2(2, 2)
 
 [node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6fl1q")
 scale = Vector2(2, 2)
 texture = ExtResource("3_vc56d")
 centered = false

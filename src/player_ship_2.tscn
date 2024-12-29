@@ -1,7 +1,7 @@
 [gd_scene load_steps=50 format=3 uid="uid://b88tqwpbtlpfc"]
 
 [ext_resource type="Script" path="res://src/scripts/player_ship_2.gd" id="1_5x0oy"]
-[ext_resource type="Texture2D" uid="uid://bwtdcldhqv0kv" path="res://PNG/ship body.png" id="2_n4wo1"]
+[ext_resource type="Texture2D" uid="uid://krxicbts8uu0" path="res://PNG/ship body.png" id="2_n4wo1"]
 [ext_resource type="Texture2D" uid="uid://dpt414q7k3xoe" path="res://PNG/thruster-sheet.png" id="3_bf1fc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6ca2"]
@@ -9,6 +9,57 @@ size = Vector2(11, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_305no"]
 size = Vector2(6.5, 4)
+
+[sub_resource type="Animation" id="Animation_ap0mp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bodySprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bodySprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ThrusterFrontSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 4.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ThrusterBackSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7, 2.5)]
+}
 
 [sub_resource type="Animation" id="Animation_dmotl"]
 resource_name = "idle"
@@ -62,57 +113,6 @@ tracks/3/keys = {
 "values": [Vector2(-7, 2.5)]
 }
 
-[sub_resource type="Animation" id="Animation_ud26l"]
-resource_name = "moving_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bodySprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0872665, 0.122173]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("bodySprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ThrusterFrontSprite:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-6, 4.5), Vector2(-7, 3)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ThrusterBackSprite:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-7, 2.5), Vector2(-8, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_kgxs2"]
 resource_name = "moving_down"
 tracks/0/type = "value"
@@ -164,9 +164,8 @@ tracks/3/keys = {
 "values": [Vector2(-7, 2.5), Vector2(-8, 3)]
 }
 
-[sub_resource type="Animation" id="Animation_nfjp5"]
-resource_name = "tilt_up"
-length = 0.001
+[sub_resource type="Animation" id="Animation_ud26l"]
+resource_name = "moving_up"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -174,10 +173,10 @@ tracks/0/path = NodePath("bodySprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.122173]
+"values": [0.0, 0.0872665, 0.122173]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -186,10 +185,10 @@ tracks/1/path = NodePath("bodySprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -1)]
+"values": [Vector2(0, 0), Vector2(0, -1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -198,10 +197,10 @@ tracks/2/path = NodePath("ThrusterFrontSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-7, 3)]
+"values": [Vector2(-6, 4.5), Vector2(-7, 3)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -210,10 +209,10 @@ tracks/3/path = NodePath("ThrusterBackSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-8, 1)]
+"values": [Vector2(-7, 2.5), Vector2(-8, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_igons"]
@@ -268,7 +267,8 @@ tracks/3/keys = {
 "values": [Vector2(-8, 3)]
 }
 
-[sub_resource type="Animation" id="Animation_ap0mp"]
+[sub_resource type="Animation" id="Animation_nfjp5"]
+resource_name = "tilt_up"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -280,7 +280,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [0.122173]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -292,7 +292,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -304,7 +304,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-6, 4.5)]
+"values": [Vector2(-7, 3)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -316,7 +316,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-7, 2.5)]
+"values": [Vector2(-8, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_545q0"]
@@ -401,6 +401,89 @@ states/Start/position = Vector2(121, 94.8115)
 transitions = ["Moving", "Movement_end", SubResource("AnimationNodeStateMachineTransition_l80lx"), "Moving", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_0sqxc"), "Movement_end", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_k1fry"), "BlendSpace1D", "Moving", SubResource("AnimationNodeStateMachineTransition_pbbri"), "Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_s5pra")]
 graph_offset = Vector2(-47, -63.1885)
 
+[sub_resource type="Animation" id="Animation_ddvre"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ThrusterFrontSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ThrusterBackSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_l1lo2"]
+resource_name = "off"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ThrusterFrontSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ThrusterBackSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_n7uff"]
+resource_name = "movement_ended"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ThrusterFrontSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ThrusterBackSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1, 0]
+}
+
 [sub_resource type="Animation" id="Animation_n52to"]
 resource_name = "movement_started"
 length = 0.5
@@ -456,89 +539,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [12, 19, 20, 21, 22, 23, 20, 19, 18, 13, 14, 15, 16, 17, 16, 12]
-}
-
-[sub_resource type="Animation" id="Animation_l1lo2"]
-resource_name = "off"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../ThrusterFrontSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../ThrusterBackSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_ddvre"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../ThrusterFrontSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../ThrusterBackSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_n7uff"]
-resource_name = "movement_ended"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../ThrusterFrontSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [5, 4, 3, 2, 1, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../ThrusterBackSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [5, 4, 3, 2, 1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ycao8"]

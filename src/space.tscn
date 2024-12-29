@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://1pgur1vtdyjv" path="res://src/space_player.tscn" id="3_lrwrr"]
 [ext_resource type="PackedScene" uid="uid://5t08hntggvf1" path="res://src/encounter.tscn" id="4_gdwj1"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="5_b6kij"]
-[ext_resource type="Texture2D" uid="uid://bkhj55plik772" path="res://PNG/black hole.png" id="5_g4w8j"]
-[ext_resource type="Texture2D" uid="uid://h3818gut0c1c" path="res://PNG/broken satelite.png" id="6_8qref"]
-[ext_resource type="Texture2D" uid="uid://db8dmsf0ql602" path="res://PNG/asteroïd chain.png" id="7_hpm5d"]
+[ext_resource type="Texture2D" uid="uid://bbiryv23pm1on" path="res://PNG/black hole.png" id="5_g4w8j"]
+[ext_resource type="Texture2D" uid="uid://be7xnt0pbo55v" path="res://PNG/broken satelite.png" id="6_8qref"]
+[ext_resource type="Texture2D" uid="uid://b6avv3q0chkx3" path="res://PNG/asteroïd chain.png" id="7_hpm5d"]
 [ext_resource type="Texture2D" uid="uid://rha5xufat2rc" path="res://src/placeholder/comet.png" id="8_a2aru"]
 [ext_resource type="PackedScene" uid="uid://75kprkj21umn" path="res://src/shop.tscn" id="9_76dkh"]
 
