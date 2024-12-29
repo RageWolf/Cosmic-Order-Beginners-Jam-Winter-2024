@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dkp4whprksv6e"
+=======
+uid="uid://d2txraj3y3k1f"
+>>>>>>> main2
 path="res://.godot/imported/canon charging up-Sheet.png-5b9d21da0544b195cff044ec4d0de39a.ctex"
 metadata={
 "vram_texture": false

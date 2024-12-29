@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dxbcyn7jsgcgj"
+=======
+uid="uid://7mlg48alwgw2"
+>>>>>>> main2
 path="res://.godot/imported/reactor on-Sheet.png-55645de77db2791b06420ea2432d3c75.ctex"
 metadata={
 "vram_texture": false

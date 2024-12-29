@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://h3818gut0c1c"
+=======
+uid="uid://dl8vyvx7uwheo"
+>>>>>>> main2
 path="res://.godot/imported/broken satelite.png-04f9d3cd1906176e2960faf6f941f701.ctex"
 metadata={
 "vram_texture": false

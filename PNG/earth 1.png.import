@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dcnj0wlj2axht"
+=======
+uid="uid://4ysyv75mtrmj"
+>>>>>>> main2
 path="res://.godot/imported/earth 1.png-429bc0b788a70742d317417a2aca2e09.ctex"
 metadata={
 "vram_texture": false

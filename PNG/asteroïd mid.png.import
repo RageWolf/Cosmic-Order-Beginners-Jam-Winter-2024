@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://co45ik7tll1cm"
+=======
+uid="uid://n4eq1rayp1yc"
+>>>>>>> main2
 path="res://.godot/imported/asteroïd mid.png-1779241cc31a3589080dc55648ce1273.ctex"
 metadata={
 "vram_texture": false

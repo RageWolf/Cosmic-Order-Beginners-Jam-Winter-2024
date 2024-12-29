@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://by6h6x2b4v282"
+=======
+uid="uid://c3p702odcd3do"
+>>>>>>> main2
 path="res://.godot/imported/Thruster starting-Sheet.png-35953cccb4620c2dd7a0338ddca106ee.ctex"
 metadata={
 "vram_texture": false
