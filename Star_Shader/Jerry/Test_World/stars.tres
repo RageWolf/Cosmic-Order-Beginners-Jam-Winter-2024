@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://8t5ls5ufe1ly"]
+
+[ext_resource type="Shader" path="res://Jerry/Shader_Peramiters/Star_Shader_Parameters/star.gdshader" id="1_0v2gm"]
+
+[resource]
+shader = ExtResource("1_0v2gm")
+shader_parameter/screen_size = Vector2(640, 480)
+shader_parameter/base_blink_speed = 1.0
+shader_parameter/base_glow_intensity = 1.0
+shader_parameter/star_density = 0.05
+shader_parameter/scroll_speed = Vector2(1, 0.2)
+shader_parameter/randomness_seed = 1.0
+shader_parameter/min_blink_speed = 0.5
+shader_parameter/max_blink_speed = 2.0

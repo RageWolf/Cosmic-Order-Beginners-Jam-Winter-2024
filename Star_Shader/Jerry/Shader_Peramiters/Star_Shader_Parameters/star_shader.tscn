@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://qbrocxvj4q1o"]
+
+[ext_resource type="Script" path="res://Jerry/Shader_Peramiters/Star_Shader_Parameters/star_shader.gd" id="1_71cpn"]
+[ext_resource type="Shader" path="res://Jerry/Shader_Peramiters/Star_Shader_Parameters/star.gdshader" id="2_fs4cn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tejo6"]
+shader = ExtResource("2_fs4cn")
+shader_parameter/screen_size = Vector2(640, 480)
+shader_parameter/base_blink_speed = 1.0
+shader_parameter/base_glow_intensity = 1.7
+shader_parameter/star_density = 0.8
+shader_parameter/scroll_speed = Vector2(-1, 0.5)
+shader_parameter/randomness_seed = 1.0
+shader_parameter/deceleration = 0.002
+
+[node name="Star_Shader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_71cpn")
+shader_material = SubResource("ShaderMaterial_tejo6")
