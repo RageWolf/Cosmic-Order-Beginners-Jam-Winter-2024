@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://qldlw4sdkqro"]
 
-[ext_resource type="PackedScene" uid="uid://sa15804bcg3x" path="res://Assets/Background/dust.tscn" id="1_efebf"]
-[ext_resource type="Texture2D" uid="uid://c7db5hf506ahl" path="res://Assets/Background/Planet.png" id="2_3xk7f"]
-[ext_resource type="Texture2D" uid="uid://betc32rtew3b4" path="res://Assets/Background/Nebula.png" id="2_ho31o"]
+[ext_resource type="PackedScene" uid="uid://sa15804bcg3x" path="res://PNG/Background/dust.tscn" id="1_efebf"]
+[ext_resource type="Texture2D" uid="uid://c7db5hf506ahl" path="res://PNG/Background/Planet.png" id="2_3xk7f"]
+[ext_resource type="Texture2D" uid="uid://betc32rtew3b4" path="res://PNG/Background/Nebula.png" id="2_ho31o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0mura"]
 
