@@ -8,6 +8,9 @@ class_name Asteroid extends RigidBody2D
 var health : int = 1
 var damage : int = 5
 var fuel_damage : bool = false
+@export var break_velocity : float = 50.0
+
+@onready var AsteroidObj : PackedScene = preload("res://src/asteroid.tscn")
 
 # Possible textures are preloaded in the class to reduce load when spawning new asteroids.
 # I don't know how to implement this in a more ellegant way.
@@ -50,3 +53,25 @@ func _ready() -> void:
 	
 	# sets the linear velocity vector of the RigidBody2D to inputed velocity in the inputed direction
 	self.linear_velocity = velocity * Vector2.from_angle(deg_to_rad(direction)).normalized()
+
+func hit() -> void:
+	health -= 1
+	if (health < 1):
+		match magnitude:
+			AsteroidSize.Large:
+				for i in 2:
+					get_parent().call_deferred("add_child", generate_asteroid(2))
+					print("Added medium asteroid")
+			AsteroidSize.Medium:
+				for i in 3:
+					get_parent().call_deferred("add_child", generate_asteroid(1))
+					print("Added small asteroid")
+		self.queue_free()
+
+func generate_asteroid(new_magnitude: int) -> Asteroid:
+	var asteroid_instance : Asteroid = AsteroidObj.instantiate()
+	asteroid_instance.magnitude = new_magnitude
+	asteroid_instance.direction = randf_range(0,359)
+	asteroid_instance.velocity = break_velocity
+	asteroid_instance.position = self.position + 20 * Vector2.from_angle(asteroid_instance.direction).normalized()
+	return asteroid_instance

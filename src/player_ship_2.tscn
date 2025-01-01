@@ -1,9 +1,18 @@
-[gd_scene load_steps=54 format=3 uid="uid://b88tqwpbtlpfc"]
+[gd_scene load_steps=65 format=3 uid="uid://b88tqwpbtlpfc"]
 
 [ext_resource type="Script" path="res://src/scripts/player_ship_2.gd" id="1_ahuhr"]
+[ext_resource type="Shader" path="res://src/shaders/flash.gdshader" id="1_ys8p3"]
 [ext_resource type="Texture2D" uid="uid://bwtdcldhqv0kv" path="res://PNG/ship body.png" id="2_dxuko"]
 [ext_resource type="Texture2D" uid="uid://dpt414q7k3xoe" path="res://PNG/thruster-sheet.png" id="3_lg13m"]
 [ext_resource type="Script" path="res://src/components/hitbox_component.gd" id="4_2b2dh"]
+[ext_resource type="Texture2D" uid="uid://dkp4whprksv6e" path="res://PNG/canon charging up-Sheet.png" id="5_j5alh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgs2j"]
+resource_local_to_scene = true
+shader = ExtResource("1_ys8p3")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+shader_parameter/alpha = 1.0
 
 [sub_resource type="Animation" id="Animation_ap0mp"]
 length = 0.001
@@ -54,6 +63,42 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-7, 2.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ThrusterBackSprite:material:shader_parameter/flash_modifier")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ThrusterFrontSprite:material:shader_parameter/flash_modifier")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("bodySprite:material:shader_parameter/flash_modifier")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_dmotl"]
@@ -314,13 +359,9 @@ tracks/3/keys = {
 "values": [Vector2(-8, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_htcea"]
-resource_name = "damage_taken"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_545q0"]
 _data = {
 "RESET": SubResource("Animation_ap0mp"),
-"damage_taken": SubResource("Animation_htcea"),
 "idle": SubResource("Animation_dmotl"),
 "moving_down": SubResource("Animation_kgxs2"),
 "moving_up": SubResource("Animation_ud26l"),
@@ -399,6 +440,20 @@ states/Moving/position = Vector2(486, -17.1885)
 states/Start/position = Vector2(121, 94.8115)
 transitions = ["Moving", "Movement_end", SubResource("AnimationNodeStateMachineTransition_l80lx"), "Moving", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_0sqxc"), "Movement_end", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_k1fry"), "BlendSpace1D", "Moving", SubResource("AnimationNodeStateMachineTransition_pbbri"), "Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_s5pra")]
 graph_offset = Vector2(-47, -63.1885)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4si8q"]
+resource_local_to_scene = true
+shader = ExtResource("1_ys8p3")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qkuv"]
+resource_local_to_scene = true
+shader = ExtResource("1_ys8p3")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+shader_parameter/alpha = 1.0
 
 [sub_resource type="Animation" id="Animation_ddvre"]
 length = 0.001
@@ -610,9 +665,52 @@ states/Movement_started/node = SubResource("AnimationNodeBlendSpace1D_qvmr4")
 states/Movement_started/position = Vector2(383, 51)
 states/Moving/node = SubResource("AnimationNodeBlendSpace1D_2s34c")
 states/Moving/position = Vector2(570, 132)
-states/Start/position = Vector2(51, 127)
+states/Start/position = Vector2(48.3333, 129.222)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_r5q58"), "Idle", "Movement_started", SubResource("AnimationNodeStateMachineTransition_xfkfx"), "Movement_started", "Moving", SubResource("AnimationNodeStateMachineTransition_lx87x"), "Moving", "Movement_ended", SubResource("AnimationNodeStateMachineTransition_vpmob"), "Movement_ended", "Idle", SubResource("AnimationNodeStateMachineTransition_buvp0"), "Movement_ended", "Movement_started", SubResource("AnimationNodeStateMachineTransition_yngll")]
 graph_offset = Vector2(-130.837, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_peeu3"]
+shader = ExtResource("1_ys8p3")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+shader_parameter/alpha = 1.0
+
+[sub_resource type="Animation" id="Animation_isq5x"]
+resource_name = "shoot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CannonSprite:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1, 2, 3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_w742m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CannonSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ue0pd"]
+_data = {
+"RESET": SubResource("Animation_w742m"),
+"shoot": SubResource("Animation_isq5x")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6ca2"]
 size = Vector2(11, 7.5)
@@ -624,7 +722,307 @@ size = Vector2(6.125, 4.5)
 size = Vector2(12, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxtqp"]
-size = Vector2(6.5, 5.5)
+size = Vector2(6, 5.5)
+
+[sub_resource type="Animation" id="Animation_30kyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ThrusterFrontSprite:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bodySprite:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ThrusterFrontSprite:material:shader_parameter/flash_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ThrusterBackSprite:material:shader_parameter/flash_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ThrusterBackSprite:material:shader_parameter/flash_modifier")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("bodySprite:material:shader_parameter/flash_modifier")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("bodySprite:material:shader_parameter/alpha")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ThrusterFrontSprite:material:shader_parameter/alpha")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ThrusterBackSprite:material:shader_parameter/alpha")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CannonSprite:material:shader_parameter/flash_modifier")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CannonSprite:material:shader_parameter/flash_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CannonSprite:material:shader_parameter/alpha")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_75lus"]
+resource_name = "damage_taken"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ThrusterBackSprite:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ThrusterFrontSprite:material:shader_parameter/flash_modifier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bodySprite:material:shader_parameter/flash_modifier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bodySprite:material:shader_parameter/flash_color")
+tracks/3/interp = 0
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ThrusterFrontSprite:material:shader_parameter/flash_color")
+tracks/4/interp = 0
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ThrusterBackSprite:material:shader_parameter/flash_color")
+tracks/5/interp = 0
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("bodySprite:material:shader_parameter/alpha")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.5, 0.666667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.2, 1.0, 0.2, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ThrusterFrontSprite:material:shader_parameter/alpha")
+tracks/7/interp = 1
+tracks/7/loop_wrap = false
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.5, 0.666667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.2, 1.0, 0.2, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ThrusterBackSprite:material:shader_parameter/alpha")
+tracks/8/interp = 1
+tracks/8/loop_wrap = false
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.5, 0.666667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.2, 1.0, 0.2, 1.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CannonSprite:material:shader_parameter/flash_modifier")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CannonSprite:material:shader_parameter/flash_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CannonSprite:material:shader_parameter/alpha")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.5, 0.666667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.2, 1.0, 0.2, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_10fbm"]
+_data = {
+"RESET": SubResource("Animation_30kyf"),
+"damage_taken": SubResource("Animation_75lus")
+}
 
 [node name="PlayerShip" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -638,6 +1036,7 @@ script = ExtResource("1_ahuhr")
 
 [node name="bodySprite" type="Sprite2D" parent="."]
 z_index = 2
+material = SubResource("ShaderMaterial_mgs2j")
 texture = ExtResource("2_dxuko")
 
 [node name="BodyAnimations" type="AnimationPlayer" parent="."]
@@ -656,15 +1055,19 @@ parameters/Moving/blend_position = -0.00298506
 
 [node name="ThrusterFrontSprite" type="Sprite2D" parent="."]
 z_index = 3
+material = SubResource("ShaderMaterial_4si8q")
 position = Vector2(-6, 4.5)
 texture = ExtResource("3_lg13m")
+offset = Vector2(-2, -0.5)
 hframes = 12
 vframes = 2
 
 [node name="ThrusterBackSprite" type="Sprite2D" parent="."]
 z_index = 1
+material = SubResource("ShaderMaterial_6qkuv")
 position = Vector2(-7, 2.5)
 texture = ExtResource("3_lg13m")
+offset = Vector2(-2, -0.5)
 hframes = 12
 vframes = 2
 
@@ -675,6 +1078,7 @@ libraries = {
 }
 
 [node name="ThrustersAnimationTree" type="AnimationTree" parent="."]
+active = false
 root_node = NodePath("../BodyAnimations")
 tree_root = SubResource("AnimationNodeStateMachine_ay4tb")
 anim_player = NodePath("../ThrustersAnimations")
@@ -684,6 +1088,18 @@ parameters/Idle/blend_position = 0.0
 parameters/Movement_ended/blend_position = 0
 parameters/Movement_started/blend_position = 0
 parameters/Moving/blend_position = 0
+
+[node name="CannonSprite" type="Sprite2D" parent="."]
+z_index = 3
+material = SubResource("ShaderMaterial_peeu3")
+position = Vector2(10, 5)
+texture = ExtResource("5_j5alh")
+hframes = 4
+
+[node name="CannonAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ue0pd")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 10
@@ -707,8 +1123,15 @@ shape = SubResource("RectangleShape2D_f7jjs")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
 z_index = 11
-position = Vector2(8.25, 3.25)
+position = Vector2(8.5, 3.25)
 shape = SubResource("RectangleShape2D_xxtqp")
 
 [node name="HitInvulTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ShaderAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_10fbm")
+}
+
+[node name="CannonCooldown" type="Timer" parent="."]
