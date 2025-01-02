@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 		position = position.move_toward(destination, speed)
 	else:
 		if not stopped:
-			emit_signal("destination_reached")
+			destination_reached.emit()
 			stopped = true

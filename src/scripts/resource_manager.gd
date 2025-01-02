@@ -59,3 +59,6 @@ func get_days_left() -> int:
 
 func get_credits() -> int:
 	return credits
+
+func game_over_emit() -> void:
+	game_over.emit()
