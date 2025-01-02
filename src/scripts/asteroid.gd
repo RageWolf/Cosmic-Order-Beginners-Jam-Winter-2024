@@ -1,7 +1,7 @@
 class_name Asteroid extends RigidBody2D
 
 ## Determines the size of the meteor between small, medium and large.
-@export_enum("Small:1", "Medium:2", "Large:3") var magnitude : int	 = AsteroidSize.Small
+@export_enum("Small:1", "Medium:2", "Large:3") var magnitude : int = AsteroidSize.Small
 @export var velocity : float = 50
 ## Direction is passed as an angle in degrees.
 @export_range(0, 360, 0.1) var direction : float = 180
@@ -10,7 +10,7 @@ var damage : int = 5
 var fuel_damage : bool = false
 @export var break_velocity : float = 50.0
 
-@onready var AsteroidObj : PackedScene = preload("res://src/asteroids.tscn")
+@onready var AsteroidObj : PackedScene = preload("res://src/asteroid.tscn")
 
 # Possible textures are preloaded in the class to reduce load when spawning new asteroids.
 # I don't know how to implement this in a more ellegant way.
