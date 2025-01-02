@@ -20,9 +20,10 @@
 
 [node name="AsteroidMinigame" type="Node2D"]
 script = ExtResource("1_ow8g8")
+dificulty_scaling = null
+starting_pos = null
 
 [node name="ScreenCollision" type="StaticBody2D" parent="."]
-collision_mask = 0
 
 [node name="ScreenBorderUp" type="CollisionShape2D" parent="ScreenCollision"]
 rotation = -3.14159
@@ -42,8 +43,6 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_np4x8")
 
 [node name="OutOfBoundsBorder" type="Area2D" parent="."]
-collision_layer = 512
-collision_mask = 14
 
 [node name="OutOfBoundsLeft" type="CollisionShape2D" parent="OutOfBoundsBorder"]
 position = Vector2(-64, 0)
@@ -59,12 +58,7 @@ shape = SubResource("WorldBoundaryShape2D_6cdg2")
 position = Vector2(0, 544)
 shape = SubResource("WorldBoundaryShape2D_y834l")
 
-[node name="OutOfBoundsRight" type="CollisionShape2D" parent="OutOfBoundsBorder"]
-position = Vector2(768, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBoundsBorder"]
+position = Vector2(704, 0)
 rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_w61it")
-
-[node name="LevelTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="AsteroidTimer" type="Timer" parent="."]
