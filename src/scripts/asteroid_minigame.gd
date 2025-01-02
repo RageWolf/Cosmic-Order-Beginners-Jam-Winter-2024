@@ -3,7 +3,7 @@ class_name AsteroidMinigame extends ShipMinigame
 ## Basic difficulty modifier, scales asteroid speed and frequency.
 @export_range(0.5,3,0.1) var difficulty_scaling : float = 1.0
 
-const AsteroidObj : PackedScene = preload("res://src/asteroid.tscn")
+const AsteroidObj : PackedScene = preload("res://src/asteroid_2.tscn")
 const AsteroidSpawnPos : Vector2 = Vector2(672,16)
 const AsteroidSpawnArea : Vector2 = Vector2(32,464)
 

@@ -10,7 +10,7 @@ var damage : int = 5
 var fuel_damage : bool = false
 @export var break_velocity : float = 50.0
 
-@onready var AsteroidObj : PackedScene = preload("res://src/asteroid.tscn")
+@onready var AsteroidObj : PackedScene = preload("res://src/asteroid_2.tscn")
 @onready var ChipPlayer : AudioStreamPlayer2D = $AudioChip
 @onready var BreakPlayer : AudioStreamPlayer2D = $AudioBreak
 @onready var Sprite : Sprite2D = $Sprite
