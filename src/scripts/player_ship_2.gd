@@ -10,7 +10,7 @@ class_name PlayerShip extends CharacterBody2D
 # Impact with an object will always cause a minimum ammount of bounce off to prevent it from trapping the player.
 var base_bounce : float = 20.0
 var hit_invulnerability : bool = false
-@export var shoot_frequency : float = 0.5
+@export var shoot_frequency : float = 0.7
 @export var shot_speed : float = 200.0
 var shoot_cooldown : bool = false
 @onready var shot_origin : Vector2 = $CannonSprite.position * self.scale
@@ -25,6 +25,11 @@ const ShotObj : PackedScene = preload("res://src/shot.tscn")
 @onready var PlayerHitbox : Hitbox = $Hitbox
 @onready var InvulTimer : Timer = $HitInvulTimer
 @onready var CannonCooldown : Timer = $CannonCooldown
+# Very archaic implementation of audio; I'm too pressed on time to make a proper audio manager.
+@onready var FireStartPlayer : AudioStreamPlayer2D = $AudioFireStart
+@onready var FireBurstPlayer : AudioStreamPlayer2D = $AudioFireBurst
+@onready var FireLoopPlayer : AudioStreamPlayer2D = $AudioFireLoop
+@onready var FireEndPlayer : AudioStreamPlayer2D = $AudioFireEnd
 
 signal ship_destroyed
 signal ship_out_of_fuel
@@ -32,12 +37,14 @@ signal ship_out_of_fuel
 func _ready() -> void:
 	BodyAnimationTree.active = true
 	ThrustersAnimationTree.active = true
+	ThrustersAnimationTree.connect("animation_started", _on_animationStateChanged_updateAudio)
 	hit_invulnerability = false
 	shoot_cooldown = false
 	PlayerHitbox.connect("body_entered", _on_hitbox_body_entered)
 	InvulTimer.connect("timeout", _on_invulTimer_timeout)
 	CannonCooldown.wait_time = shoot_frequency
 	CannonCooldown.connect("timeout", _on_cannonCooldown_completed)
+	FireLoopPlayer.connect("finished", _on_fireLoop_finished_replay)
 
 func _process(delta: float) -> void:
 	animation_update()
@@ -117,6 +124,7 @@ func take_damage(damage : int, fuel_lost : bool = false) -> void:
 
 func shoot() -> void:
 	shoot_cooldown = true	
+	CannonAnimationPlayer.play("RESET")
 	CannonAnimationPlayer.play("shoot")
 	var shot_instance : Shot = ShotObj.instantiate()
 	# Setting direction to be aligned with the mouse and distance to be slightly away from the ship's center.
@@ -143,3 +151,18 @@ func  _on_invulTimer_timeout() -> void:
 
 func _on_cannonCooldown_completed() -> void:
 	shoot_cooldown = false
+
+func _on_fireLoop_finished_replay() -> void:
+	FireLoopPlayer.play()
+
+func _on_animationStateChanged_updateAudio(anim_name: StringName) -> void:
+	match(anim_name):
+		"movement_started":
+			FireStartPlayer.play()
+			FireBurstPlayer.play()
+			FireLoopPlayer.play()
+		"movement_ended":
+			FireLoopPlayer.stop()
+			FireEndPlayer.play()
+		_:
+			FireLoopPlayer.stop()

@@ -61,11 +61,9 @@ func hit() -> void:
 			AsteroidSize.Large:
 				for i in 2:
 					get_parent().call_deferred("add_child", generate_asteroid(2))
-					print("Added medium asteroid")
 			AsteroidSize.Medium:
 				for i in 3:
 					get_parent().call_deferred("add_child", generate_asteroid(1))
-					print("Added small asteroid")
 		self.queue_free()
 
 func generate_asteroid(new_magnitude: int) -> Asteroid:
