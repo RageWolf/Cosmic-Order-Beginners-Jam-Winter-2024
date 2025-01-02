@@ -7,8 +7,6 @@ func _ready() -> void:
 	$CreditsContainer/Credits.text = str(ResourceManager.credits)
 	$DaysContainer/Days.text = str(ResourceManager.days_left)
 func _on_resources_updated() -> void:
-	print(ResourceManager.fuel)
-	print(int($FuelContainer/Fuel.text))
 	if ResourceManager.fuel != int($FuelContainer/Fuel.text):
 		var floater:Label= floater_scene.instantiate()
 		floater.text = str(ResourceManager.fuel - int($FuelContainer/Fuel.text))

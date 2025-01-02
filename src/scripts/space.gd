@@ -58,5 +58,6 @@ func _on_space_player_destination_reached() -> void:
 	if arriving_node.event:
 		get_tree().change_scene_to_packed(arriving_node.event)
 	if arriving_node.is_final_node:
-		#$"Next level".show()
-		pass
+		G.current_level = next_level
+		G.current_space_location = ""
+		get_tree().change_scene_to_file("res://src/shop.tscn")
