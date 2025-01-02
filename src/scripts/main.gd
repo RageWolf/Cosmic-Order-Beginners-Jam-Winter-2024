@@ -41,12 +41,12 @@ func _ready():
 
 # Function to load shaders from the Shaders folder
 func load_shaders():
-	var dir = DirectoryAccess.open(SHADER_FOLDER)
+	var dir = DirAccess.open("res://Shader/")
 	if dir.error != OK:
 		push_error("Failed to open shader folder: " + SHADER_FOLDER)
 		return
 	
-	dir.list_dir_begin(true, true)  # Exclude hidden files, sorted
+	dir.list_dir_begin()  # Exclude hidden files, sorted
 	var file_name = dir.get_next()
 	while file_name:
 		if file_name.ends_with(".gdshader"):
@@ -66,12 +66,12 @@ func load_shaders():
 
 # Function to load noise textures from the Noise folder
 func load_noise_textures():
-	var dir = DirectoryAccess.open(NOISE_TEXTURE_FOLDER)
+	var dir = DirAccess.open(NOISE_TEXTURE_FOLDER)
 	if dir.error != OK:
 		push_error("Failed to open noise texture folder: " + NOISE_TEXTURE_FOLDER)
 		return
 	
-	dir.list_dir_begin(true, true)
+	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	while file_name:
 		if file_name.endswith(".png") or file_name.endswith(".jpg") or file_name.endswith(".jpeg"):
@@ -90,12 +90,12 @@ func load_noise_textures():
 
 # Function to load rune textures from the Runes folder
 func load_rune_textures():
-	var dir = DirectoryAccess.open(RUNE_TEXTURE_FOLDER)
+	var dir = DirAccess.open(RUNE_TEXTURE_FOLDER)
 	if dir.error != OK:
 		push_error("Failed to open rune texture folder: " + RUNE_TEXTURE_FOLDER)
 		return
 	
-	dir.list_dir_begin(true, true)
+	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	while file_name:
 		if file_name.endswith(".png") or file_name.endswith(".jpg") or file_name.endswith(".jpeg"):
