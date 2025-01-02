@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c0o1umds4c3ys"]
 
-[ext_resource type="Script" path="res://src/scripts/asteroid_2.gd" id="1_vtogu"]
+[ext_resource type="Script" path="res://src/scripts/asteroid.gd" id="1_vtogu"]
 [ext_resource type="Texture2D" uid="uid://0dithx1cd84s" path="res://PNG/asteroid_large.png" id="2_qp6lt"]
 [ext_resource type="AudioStream" uid="uid://bp18oagikckxf" path="res://src/audio/sfx/asteroid-chip.ogg" id="3_4q6rp"]
 [ext_resource type="AudioStream" uid="uid://plfsi0qimli3" path="res://src/audio/sfx/asteroid-break-1.ogg" id="4_jnsw4"]

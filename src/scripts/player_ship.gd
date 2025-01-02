@@ -14,7 +14,7 @@ func _ready() -> void:
 	can_shoot = true
 	# Connect signal callbacks using Godot 4's syntax
 	fire_rate.timeout.connect(_on_fire_rate_timeout)
-	hit_detector.area_entered.connect(_on_hit_detector_area_entered)
+#	hit_detector.area_entered.connect(_on_hit_detector_area_entered)
 
 
 func _physics_process(delta: float) -> void:
@@ -56,7 +56,8 @@ func _on_fire_rate_timeout() -> void:
 	can_shoot = true
 
 
-func _on_hit_detector_area_entered(area: Area2D) -> void:
-	if area is Asteroid:
-		print("Hit an asteroid")
+# commenting this since it's generating an error with the Asteroid class on startup.
+# func _on_hit_detector_area_entered(area: Area2D) -> void:
+#	if area is Asteroid:
+#		print("Hit an asteroid")
 		# Potentially handle damage to the player or the asteroid here
