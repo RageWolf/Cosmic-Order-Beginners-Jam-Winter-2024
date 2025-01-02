@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Jerry/Test_World/test_world.gd" id="1_4rslo"]
 [ext_resource type="PackedScene" uid="uid://qbrocxvj4q1o" path="res://Jerry/Shader_Peramiters/Star_Shader_Parameters/star_shader.tscn" id="1_dxqo7"]
 [ext_resource type="Texture2D" uid="uid://du04sq64rbog4" path="res://PNG/BCG1.png" id="2_6lnba"]
-[ext_resource type="Shader" uid="uid://xuhim4odow6x" path="res://star_warp.tres" id="3_pmrww"]
+[ext_resource type="Shader" uid="uid://xuhim4odow6x" path="res://Jerry/star_warp.tres" id="3_pmrww"]
 [ext_resource type="Script" path="res://Jerry/Shader_Peramiters/Star_Shader_Parameters/idle_star_peramiters.gd" id="5_7x016"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_npj60"]

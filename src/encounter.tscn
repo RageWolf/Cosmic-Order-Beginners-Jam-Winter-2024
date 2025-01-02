@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/scripts/encounter.gd" id="1_1a65w"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="1_8tx74"]
-[ext_resource type="Shader" path="res://Shader/Shader Scripts/flicker.gdshader" id="2_bj31o"]
-[ext_resource type="Texture2D" uid="uid://ciewen4qpgosh" path="res://Shader/Textures/Techno_13-512x512.png" id="3_5ppvk"]
+[ext_resource type="Shader" path="res://Jerry/Shader/Shader Scripts/flicker.gdshader" id="2_bj31o"]
+[ext_resource type="Texture2D" uid="uid://ciewen4qpgosh" path="res://Jerry/Shader/Textures/Techno_13-512x512.png" id="3_5ppvk"]
 [ext_resource type="Texture2D" uid="uid://ckisnq57738pa" path="res://src/placeholder/terminal.png" id="3_vc56d"]
 [ext_resource type="Script" path="res://src/scripts/background.gd" id="5_1fcko"]
 

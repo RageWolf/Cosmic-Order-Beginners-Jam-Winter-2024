@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpsq387f0ehau"]
+
+[ext_resource type="Shader" path="res://Jerry/Shader/Shader Scripts/flicker.gdshader" id="1_fcs5t"]
+[ext_resource type="Script" path="res://Jerry/Shader/Shader Scripts/flicker.gd" id="1_h7qao"]
+[ext_resource type="Texture2D" uid="uid://pt4wsrxrl76n" path="res://Jerry/Shader/Textures/Techno_03-512x512.png" id="2_6bscj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qohwx"]
+bg_color = Color(0.6, 0.6, 0.6, 0.184314)
+
+[sub_resource type="Theme" id="Theme_h7j06"]
+Panel/styles/panel = SubResource("StyleBoxFlat_qohwx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hbhuo"]
+shader = ExtResource("1_fcs5t")
+shader_parameter/base_color = Vector4(0.05, 0.05, 0.1, 1)
+shader_parameter/glow_intensity = 0.15
+shader_parameter/distortion_strength = 0.02
+shader_parameter/flicker_speed = 3.0
+shader_parameter/noise_scale = 1.5
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+shader_parameter/distortion_frequency = 20.0
+shader_parameter/effect_position = Vector2(0.5, 0.5)
+shader_parameter/effect_radius = 0.2
+shader_parameter/fade_radius = 0.4
+shader_parameter/noise_texture = ExtResource("2_6bscj")
+
+[node name="Flicker_Node" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_h7j06")
+script = ExtResource("1_h7qao")
+
+[node name="Flicker" type="Control" parent="."]
+material = SubResource("ShaderMaterial_hbhuo")
+layout_mode = 2

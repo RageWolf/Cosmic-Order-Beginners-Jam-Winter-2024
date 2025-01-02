@@ -1,4 +1,4 @@
-class_name PlayerShip extends CharacterBody2D
+class_name Player_Ship extends CharacterBody2D
 
 @export var maxSpeed : float = 130
 @export var acceleration : float = 200

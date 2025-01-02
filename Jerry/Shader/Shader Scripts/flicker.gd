@@ -1,9 +1,10 @@
-extends Sprite2D
+extends PanelContainer
+
 
 func _ready():
 	# Ensure the node has a ShaderMaterial
 	if not material or not (material is ShaderMaterial):
-		var shader = preload("res://Jerry/Shader/flicker.tscn") # Adjust the path if necessary
+		var shader = preload("res://Jerry/Shader/Shader Scripts/flicker.gdshader") # Adjust the path if necessary
 		var shader_material = ShaderMaterial.new()
 		shader_material.shader = shader
 		material = shader_material
