@@ -30,6 +30,8 @@ const ShotObj : PackedScene = preload("res://src/shot.tscn")
 @onready var FireBurstPlayer : AudioStreamPlayer2D = $AudioFireBurst
 @onready var FireLoopPlayer : AudioStreamPlayer2D = $AudioFireLoop
 @onready var FireEndPlayer : AudioStreamPlayer2D = $AudioFireEnd
+@onready var ShootPlayer : AudioStreamPlayer2D = $AudioShoot
+@onready var DamagePlayer : AudioStreamPlayer2D = $AudioDamage
 
 signal ship_destroyed
 signal ship_out_of_fuel
@@ -111,6 +113,7 @@ func take_damage(damage : int, fuel_lost : bool = false) -> void:
 			G.player_data.fuel-=1
 		
 		ShaderAnimationPlayer.play("damage_taken")
+		DamagePlayer.play()
 		
 		# *** TODO *** Delete this print when UI is implemented
 		print("Damage taken. Health: ", G.player_data.hull, " Fuel:", G.player_data.fuel)
@@ -126,6 +129,7 @@ func shoot() -> void:
 	shoot_cooldown = true	
 	CannonAnimationPlayer.play("RESET")
 	CannonAnimationPlayer.play("shoot")
+	ShootPlayer.play()
 	var shot_instance : Shot = ShotObj.instantiate()
 	# Setting direction to be aligned with the mouse and distance to be slightly away from the ship's center.
 	var shot_direction : Vector2 = get_local_mouse_position().normalized()

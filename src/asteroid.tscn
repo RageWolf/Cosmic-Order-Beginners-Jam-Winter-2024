@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0o1umds4c3ys"]
+[gd_scene load_steps=10 format=3 uid="uid://c0o1umds4c3ys"]
 
 [ext_resource type="Script" path="res://src/scripts/asteroid.gd" id="1_x8h0o"]
 [ext_resource type="Texture2D" uid="uid://0dithx1cd84s" path="res://PNG/asteroid_large.png" id="2_racn6"]
+[ext_resource type="AudioStream" uid="uid://bp18oagikckxf" path="res://src/audio/sfx/asteroid-chip.ogg" id="3_shdyc"]
+[ext_resource type="AudioStream" uid="uid://plfsi0qimli3" path="res://src/audio/sfx/asteroid-break-1.ogg" id="4_5fgl8"]
+[ext_resource type="AudioStream" uid="uid://cu84hyoel2wnd" path="res://src/audio/sfx/asteroid-break-2.ogg" id="5_r0lfv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxs5c"]
 radius = 22.0
@@ -11,6 +14,14 @@ radius = 12.0416
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w0mug"]
 radius = 13.0384
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xdhos"]
+playback_mode = 1
+random_pitch = 1.15
+random_volume_offset_db = 1.21
+streams_count = 2
+stream_0/stream = ExtResource("4_5fgl8")
+stream_1/stream = ExtResource("5_r0lfv")
 
 [node name="Asteroid" type="RigidBody2D"]
 collision_layer = 8
@@ -36,3 +47,11 @@ disabled = true
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_w0mug")
 disabled = true
+
+[node name="AudioChip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_shdyc")
+max_polyphony = 5
+
+[node name="AudioBreak" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_xdhos")
+max_polyphony = 5

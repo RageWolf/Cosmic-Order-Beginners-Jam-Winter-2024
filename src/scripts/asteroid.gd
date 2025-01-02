@@ -11,6 +11,10 @@ var fuel_damage : bool = false
 @export var break_velocity : float = 50.0
 
 @onready var AsteroidObj : PackedScene = preload("res://src/asteroid.tscn")
+@onready var ChipPlayer : AudioStreamPlayer2D = $AudioChip
+@onready var BreakPlayer : AudioStreamPlayer2D = $AudioBreak
+@onready var Sprite : Sprite2D = $Sprite
+@onready var CollisionBox : CollisionShape2D = $CollisionBoxSmall
 
 # Possible textures are preloaded in the class to reduce load when spawning new asteroids.
 # I don't know how to implement this in a more ellegant way.
@@ -25,6 +29,8 @@ enum AsteroidSize {
 }
 
 func _ready() -> void:
+	BreakPlayer.connect("finished", _on_breakSoundFinished_deleteObj)
+	
 	match magnitude:
 		AsteroidSize.Large:
 			damage = 15
@@ -33,6 +39,7 @@ func _ready() -> void:
 			self.mass = 4
 			$Sprite.texture = TextureLarge
 			$CollisionBoxLarge.disabled = false
+			CollisionBox = $CollisionBoxLarge
 		AsteroidSize.Medium:
 			damage = 10
 			fuel_damage = false
@@ -40,6 +47,7 @@ func _ready() -> void:
 			self.mass = 2
 			$Sprite.texture = TextureMid
 			$CollisionBoxMid.disabled = false
+			CollisionBox = $CollisionBoxMid
 		_:
 			damage = 5
 			fuel_damage = false
@@ -47,6 +55,7 @@ func _ready() -> void:
 			self.mass = 1
 			$Sprite.texture = TextureSmall
 			$CollisionBoxSmall.disabled = false
+			CollisionBox = $CollisionBoxSmall
 	
 	self.rotation_degrees = randf_range(0,360)
 	self.visible = true
@@ -64,7 +73,10 @@ func hit() -> void:
 			AsteroidSize.Medium:
 				for i in 3:
 					get_parent().call_deferred("add_child", generate_asteroid(1))
-		self.queue_free()
+		CollisionBox.set_deferred("disabled", true)
+		Sprite.visible = false
+		BreakPlayer.play()
+	ChipPlayer.play()
 
 func generate_asteroid(new_magnitude: int) -> Asteroid:
 	var asteroid_instance : Asteroid = AsteroidObj.instantiate()
@@ -73,3 +85,6 @@ func generate_asteroid(new_magnitude: int) -> Asteroid:
 	asteroid_instance.velocity = break_velocity
 	asteroid_instance.position = self.position + 20 * Vector2.from_angle(asteroid_instance.direction).normalized()
 	return asteroid_instance
+
+func _on_breakSoundFinished_deleteObj() -> void:
+	self.queue_free()
