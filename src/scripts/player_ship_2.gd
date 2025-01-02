@@ -10,7 +10,7 @@ class_name PlayerShip extends CharacterBody2D
 # Impact with an object will always cause a minimum ammount of bounce off to prevent it from trapping the player.
 var base_bounce : float = 20.0
 var hit_invulnerability : bool = false
-@export var shoot_frequency : float = 0.7
+@export var shoot_frequency : float = 0.6
 @export var shot_speed : float = 200.0
 var shoot_cooldown : bool = false
 @onready var shot_origin : Vector2 = $CannonSprite.position * self.scale
