@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmwiqy05p6x4y"]
+
+[ext_resource type="Script" path="res://src/scripts/ship.gd" id="1_bmefu"]
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_bmefu")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 26.0
+offset_right = 115.0
+offset_bottom = 49.0
+text = "Ship Scene"
+
+[node name="Space" type="Button" parent="."]
+offset_left = 515.0
+offset_top = 7.0
+offset_right = 630.0
+offset_bottom = 38.0
+text = "Back to Space
+"
+
+[connection signal="pressed" from="Space" to="." method="_on_space_pressed"]

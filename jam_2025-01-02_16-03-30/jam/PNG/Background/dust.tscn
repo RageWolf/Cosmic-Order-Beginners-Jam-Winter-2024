@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://sa15804bcg3x"]
+
+[ext_resource type="Texture2D" uid="uid://6vmdh7n4gx53" path="res://Assets/Background/Dust1.png" id="1_avmdu"]
+
+[node name="Dust" type="Sprite2D"]
+position = Vector2(0, -9)
+texture = ExtResource("1_avmdu")

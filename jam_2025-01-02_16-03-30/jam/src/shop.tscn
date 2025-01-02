@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://75kprkj21umn"]
+
+[ext_resource type="Script" path="res://src/scripts/shop.gd" id="1_y7cxs"]
+[ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="2_pal03"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_y7cxs")
+
+[node name="Buy Fuel" type="Button" parent="."]
+offset_left = 238.0
+offset_top = 178.0
+offset_right = 407.0
+offset_bottom = 209.0
+text = "Buy Fuel: 300 Credits
+"
+
+[node name="Space" type="Button" parent="."]
+offset_left = 255.0
+offset_top = 276.0
+offset_right = 391.0
+offset_bottom = 307.0
+text = "Back to Star Nav"
+
+[node name="UI" parent="." instance=ExtResource("2_pal03")]
+
+[connection signal="pressed" from="Buy Fuel" to="." method="_on_buy_fuel_pressed"]
+[connection signal="pressed" from="Space" to="." method="_on_space_pressed"]

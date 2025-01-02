@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bytanhbg3iue6"]
+
+[ext_resource type="Script" path="res://src/scripts/shot.gd" id="1_dgiy2"]
+[ext_resource type="Texture2D" uid="uid://bdcnsdlcgaayf" path="res://PNG/shot.png" id="2_nqyvh"]
+[ext_resource type="Script" path="res://src/components/hurtbox_component.gd" id="3_3quh1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xf8yr"]
+radius = 5.0
+
+[node name="Shot" type="Node2D"]
+z_index = 5
+script = ExtResource("1_dgiy2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_nqyvh")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("3_3quh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_xf8yr")
+
+[node name="Camera2D" type="Camera2D" parent="."]

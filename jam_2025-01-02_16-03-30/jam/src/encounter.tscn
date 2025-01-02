@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://5t08hntggvf1"]
+
+[ext_resource type="Script" path="res://src/scripts/encounter.gd" id="1_1a65w"]
+[ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="1_8tx74"]
+[ext_resource type="Shader" path="res://Jerry/Shader/Shader Scripts/flicker.gdshader" id="2_bj31o"]
+[ext_resource type="Texture2D" uid="uid://ciewen4qpgosh" path="res://Jerry/Shader/Textures/Techno_13-512x512.png" id="3_5ppvk"]
+[ext_resource type="Texture2D" uid="uid://ckisnq57738pa" path="res://src/placeholder/terminal.png" id="3_vc56d"]
+[ext_resource type="Script" path="res://src/scripts/background.gd" id="5_1fcko"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cagdc"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n18ky"]
+shader = ExtResource("2_bj31o")
+shader_parameter/base_color = Vector4(0.05, 0.05, 0.1, 1)
+shader_parameter/glow_intensity = 0.15
+shader_parameter/distortion_strength = 0.02
+shader_parameter/flicker_speed = 3.0
+shader_parameter/noise_scale = 1.5
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+shader_parameter/distortion_frequency = 20.0
+shader_parameter/effect_position = Vector2(0.5, 0.5)
+shader_parameter/effect_radius = 0.2
+shader_parameter/fade_radius = 1.0
+shader_parameter/noise_texture = ExtResource("3_5ppvk")
+
+[node name="Encounter" type="Node2D"]
+script = ExtResource("1_1a65w")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 726.0
+offset_bottom = 532.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cagdc")
+
+[node name="EncounterImage" type="Sprite2D" parent="."]
+position = Vector2(314, 64)
+scale = Vector2(2, 2)
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_n18ky")
+scale = Vector2(2, 2)
+texture = ExtResource("3_vc56d")
+centered = false
+script = ExtResource("5_1fcko")
+
+[node name="UI" parent="." instance=ExtResource("1_8tx74")]
+
+[node name="EncounterUI" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EncounterUI"]
+offset_left = 109.0
+offset_top = 131.0
+offset_right = 534.0
+offset_bottom = 232.0
+metadata/_edit_group_ = true
+
+[node name="MainText" type="RichTextLabel" parent="EncounterUI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+fit_content = true
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="Options" type="VBoxContainer" parent="EncounterUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="EncounterUI/VBoxContainer/Options"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+
+[node name="Outcomes" type="VBoxContainer" parent="EncounterUI/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="EncounterUI/VBoxContainer/Outcomes"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+
+[node name="Label" type="Label" parent="EncounterUI/VBoxContainer/Outcomes"]
+layout_mode = 2
+text = "Outcomes:"
+
+[node name="HSeparator" type="HSeparator" parent="EncounterUI/VBoxContainer/Outcomes"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="EncounterUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+
+[node name="Continue" type="Button" parent="EncounterUI/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="EncounterUI/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
