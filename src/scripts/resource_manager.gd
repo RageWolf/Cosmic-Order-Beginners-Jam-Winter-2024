@@ -6,6 +6,7 @@ signal game_over
 var fuel: int = 0
 var days_left: int = 0
 var credits: int = 0
+var hull: int = 100
 
 func _ready() -> void:
 	reset_resources()
@@ -45,10 +46,15 @@ func add_days(amount: int) -> void:
 	days_left += amount
 	resources_updated.emit()
 
+func add_health(amount: int) -> void:
+	hull += amount
+	resources_updated.emit()
+
 func reset_resources() -> void:
 	fuel = 0
 	days_left = 0
 	credits = 0
+	hull = 100
 	resources_updated.emit()
 
 func get_fuel() -> int:
@@ -59,6 +65,9 @@ func get_days_left() -> int:
 
 func get_credits() -> int:
 	return credits
+
+func get_health() -> int:
+	return hull
 
 func game_over_emit() -> void:
 	game_over.emit()

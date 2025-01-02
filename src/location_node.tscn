@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/scripts/location_node.gd" id="1_oaiqw"]
 [ext_resource type="PackedScene" uid="uid://dbon3hdtovfj" path="res://src/hover_clickable.tscn" id="2_sdqs3"]
-[ext_resource type="Texture2D" uid="uid://cb7y780j38pc7" path="res://src/placeholder/star.png" id="3_3bp16"]
+[ext_resource type="Texture2D" uid="uid://dump1pyglr0ws" path="res://PNG/star_sheet.png" id="3_0pu2e"]
 
 [node name="LocationNode" type="Node2D" groups=["location"]]
 script = ExtResource("1_oaiqw")
@@ -12,7 +12,11 @@ background = true
 background_color = Color(0.30082, 0.997837, 0.559491, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_3bp16")
+position = Vector2(-1, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("3_0pu2e")
+hframes = 3
+frame = 1
 
 [node name="PathingLine" type="Line2D" parent="."]
 visible = false

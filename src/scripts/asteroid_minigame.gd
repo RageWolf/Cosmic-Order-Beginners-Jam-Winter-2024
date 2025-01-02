@@ -39,12 +39,13 @@ func state_update() -> void:
 			LevelTimer.set_wait_time(5)
 			LevelTimer.start()
 		LevelState.InProgress:
-			LevelTimer.set_wait_time(90)
+			LevelTimer.set_wait_time(10)
 			LevelTimer.start()
 			AsteroidTimer.start()
 		LevelState.Finished:
 			# *** TODO *** Implement UI for exiting level
 			AsteroidTimer.stop()
+			get_tree().change_scene_to_packed(G.current_level)
 		LevelState.GameOver:
 			# *** TODO *** Implement game over screen
 			AsteroidTimer.stop()
