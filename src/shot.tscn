@@ -9,7 +9,6 @@ radius = 5.0
 
 [node name="Shot" type="Node2D"]
 z_index = 5
-scale = Vector2(2, 2)
 script = ExtResource("1_dgiy2")
 
 [node name="Sprite" type="Sprite2D" parent="."]

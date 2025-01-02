@@ -15,7 +15,7 @@ var text_interval = 0.01
 var picking_options = false
 
 func _ready() -> void:
-	encounters = json.parse_string(file)
+	encounters = JSON.parse_string(file)
 	encounter = encounters[G.current_encounter]
 	text_displaying = encounter[str(flag)]["text"]
 	main_text.text = text_displaying
