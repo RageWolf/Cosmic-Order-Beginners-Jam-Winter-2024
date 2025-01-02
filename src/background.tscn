@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://qldlw4sdkqro"]
+[gd_scene load_steps=7 format=3 uid="uid://ccro4c72tktej"]
 
 [ext_resource type="PackedScene" uid="uid://sa15804bcg3x" path="res://PNG/Background/dust.tscn" id="1_efebf"]
 [ext_resource type="Shader" path="res://Jerry/Shader_Peramiters/Star_Shader_Parameters/star.gdshader" id="1_jaeed"]
 [ext_resource type="Texture2D" uid="uid://c7db5hf506ahl" path="res://PNG/Background/Planet.png" id="2_3xk7f"]
 [ext_resource type="Texture2D" uid="uid://betc32rtew3b4" path="res://PNG/Background/Nebula.png" id="2_ho31o"]
-[ext_resource type="PackedScene" uid="uid://b872af7egu3lb" path="res://Jerry/earth.tscn" id="4_flr2x"]
+[ext_resource type="PackedScene" path="res://Jerry/earth.tscn" id="4_flr2x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0mura"]
 shader = ExtResource("1_jaeed")

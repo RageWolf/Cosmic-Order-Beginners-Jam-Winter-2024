@@ -4,20 +4,20 @@ signal resources_updated
 signal game_over
 
 var fuel: int = 0
-var days_left: int
-var credits: int
+var days_left: int = 0
+var credits: int = 0
 
 func _ready() -> void:
-	resources_updated.emit()
+	reset_resources()
 
 func spend_travel_resources() -> bool:
 	fuel -= 1
 	if fuel < 0:
+		fuel = 0
 		days_left -= 2
 	else:
 		days_left -= 1
-	if fuel < 0:
-		fuel = 0
+		
 	resources_updated.emit()
 	return true
 
