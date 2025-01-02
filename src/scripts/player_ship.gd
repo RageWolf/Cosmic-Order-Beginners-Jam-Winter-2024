@@ -12,34 +12,36 @@ var can_shoot: bool
 
 func _ready() -> void:
 	can_shoot = true
-	fire_rate.timeout.connect(on_fire_rate_timeout)
-	hit_detector.area_entered.connect(on_hit_detector_area_entered)
-func _process(delta) -> void:
+	# Connect signal callbacks using Godot 4's syntax
+	fire_rate.timeout.connect(_on_fire_rate_timeout)
+	hit_detector.area_entered.connect(_on_hit_detector_area_entered)
+
+
+func _physics_process(delta: float) -> void:
+	# 1. Use _physics_process instead of _process for physics-related code
 	turn_direction = Input.get_axis("turn_right", "turn_left")
 	apply_torque(turn_direction * turn_speed)
 
 	if Input.is_action_pressed("thrust"):
 		apply_central_force(transform.basis_xform(Vector2.UP) * thrust_force)
-	
+
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		shoot()
-	
-	# Screen wrapping
-	var viewport_size = get_viewport_rect().size
+
+	# 2. Screen wrapping
+	var viewport_size: Vector2 = get_viewport_rect().size
 	var wrap_margin = 25.0
-	
-	if global_position.x < 0 - wrap_margin:
+
+	if global_position.x < -wrap_margin:
 		global_position.x = viewport_size.x
 	elif global_position.x > viewport_size.x + wrap_margin:
 		global_position.x = 0
-	
-	if global_position.y < 0 - wrap_margin:
+
+	if global_position.y < -wrap_margin:
 		global_position.y = viewport_size.y
 	elif global_position.y > viewport_size.y + wrap_margin:
 		global_position.y = 0
 
-func on_fire_rate_timeout() -> void:
-	can_shoot = true
 
 func shoot() -> void:
 	var projectile = projectile_scene.instantiate()
@@ -49,6 +51,12 @@ func shoot() -> void:
 	can_shoot = false
 	fire_rate.start()
 
-func on_hit_detector_area_entered(area: Area2D) -> void:
+
+func _on_fire_rate_timeout() -> void:
+	can_shoot = true
+
+
+func _on_hit_detector_area_entered(area: Area2D) -> void:
 	if area is Asteroid:
-		print("hit an asteroid")
+		print("Hit an asteroid")
+		# Potentially handle damage to the player or the asteroid here

@@ -10,7 +10,7 @@ var damage : int = 5
 var fuel_damage : bool = false
 @export var break_velocity : float = 50.0
 
-@onready var AsteroidObj : PackedScene = preload("res://src/asteroid.tscn")
+@onready var AsteroidObj : PackedScene = preload("res://src/asteroids.tscn")
 
 # Possible textures are preloaded in the class to reduce load when spawning new asteroids.
 # I don't know how to implement this in a more ellegant way.
