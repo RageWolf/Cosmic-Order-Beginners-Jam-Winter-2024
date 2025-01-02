@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj3chirbqe5ej"]
+[gd_scene load_steps=8 format=3 uid="uid://dj3chirbqe5ej"]
 
 [ext_resource type="Script" path="res://src/scripts/space.gd" id="1_m4aiq"]
+[ext_resource type="Material" uid="uid://8t5ls5ufe1ly" path="res://Jerry/Test_World/stars.tres" id="2_3y3ab"]
 [ext_resource type="PackedScene" uid="uid://cwvebe2fhtxxe" path="res://src/location_node.tscn" id="2_8xt1u"]
+[ext_resource type="PackedScene" uid="uid://bkwc06vasxl2t" path="res://src/asteroid_minigame.tscn" id="3_2a1fj"]
 [ext_resource type="PackedScene" uid="uid://1pgur1vtdyjv" path="res://src/space_player.tscn" id="3_mm0ol"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="4_k6wwj"]
+[ext_resource type="Texture2D" uid="uid://dfo2sqoypty1p" path="res://PNG/black_pixel.png" id="6_yuuha"]
 
 [node name="Space" type="Node2D"]
 script = ExtResource("1_m4aiq")
@@ -19,22 +22,27 @@ departures = [NodePath("../LocationNode")]
 [node name="LocationNode4" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(214, 72)
 departures = [NodePath("../LocationNode")]
+event = ExtResource("3_2a1fj")
 
 [node name="LocationNode6" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(213, 306)
 departures = [NodePath("../Planet Butt Heads")]
+event = ExtResource("3_2a1fj")
 
 [node name="LocationNode7" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(330, 190)
 departures = [NodePath("../Planet Butt Heads")]
+event = ExtResource("3_2a1fj")
 
 [node name="LocationNode9" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(340, 378)
 departures = [NodePath("../LocationNode6")]
+event = ExtResource("3_2a1fj")
 
 [node name="LocationNode10" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(472, 282)
 departures = [NodePath("../LocationNode7")]
+event = ExtResource("3_2a1fj")
 
 [node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(514, 386)
@@ -44,5 +52,12 @@ departures = [NodePath("../LocationNode9"), NodePath("../LocationNode10")]
 speed = 0.1
 
 [node name="UI" parent="." instance=ExtResource("4_k6wwj")]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+material = ExtResource("2_3y3ab")
+scale = Vector2(640, 480)
+texture = ExtResource("6_yuuha")
 
 [connection signal="destination_reached" from="SpacePlayer" to="." method="_on_space_player_destination_reached"]

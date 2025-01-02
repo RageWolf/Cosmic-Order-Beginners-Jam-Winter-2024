@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkwc06vasxl2t"]
+[gd_scene load_steps=11 format=3 uid="uid://bkwc06vasxl2t"]
 
 [ext_resource type="Script" path="res://src/scripts/asteroid_minigame.gd" id="1_ow8g8"]
+[ext_resource type="Material" uid="uid://8t5ls5ufe1ly" path="res://Jerry/Test_World/stars.tres" id="2_jr6iw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jgd44"]
 
@@ -68,3 +69,11 @@ shape = SubResource("WorldBoundaryShape2D_w61it")
 one_shot = true
 
 [node name="AsteroidTimer" type="Timer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+material = ExtResource("2_jr6iw")
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)

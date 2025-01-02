@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dd6c2qcymkwia"]
+[gd_scene load_steps=15 format=3 uid="uid://dd6c2qcymkwia"]
 
 [ext_resource type="Script" path="res://src/scripts/space.gd" id="1_hx38a"]
 [ext_resource type="PackedScene" uid="uid://cwvebe2fhtxxe" path="res://src/location_node.tscn" id="1_wrkrb"]
 [ext_resource type="PackedScene" uid="uid://dj3chirbqe5ej" path="res://src/space2.tscn" id="2_4be80"]
+[ext_resource type="Material" uid="uid://8t5ls5ufe1ly" path="res://Jerry/Test_World/stars.tres" id="3_jkjgv"]
 [ext_resource type="PackedScene" uid="uid://1pgur1vtdyjv" path="res://src/space_player.tscn" id="3_lrwrr"]
 [ext_resource type="PackedScene" uid="uid://5t08hntggvf1" path="res://src/encounter.tscn" id="4_gdwj1"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="5_b6kij"]
@@ -11,13 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://b6avv3q0chkx3" path="res://PNG/asteroïd chain.png" id="7_hpm5d"]
 [ext_resource type="Texture2D" uid="uid://rha5xufat2rc" path="res://src/placeholder/comet.png" id="8_a2aru"]
 [ext_resource type="PackedScene" uid="uid://75kprkj21umn" path="res://src/shop.tscn" id="9_76dkh"]
+[ext_resource type="PackedScene" uid="uid://bkwc06vasxl2t" path="res://src/asteroid_minigame.tscn" id="10_64jaq"]
+[ext_resource type="Texture2D" uid="uid://dfo2sqoypty1p" path="res://PNG/black_pixel.png" id="13_fy2mq"]
 
 [node name="Space" type="Node2D"]
 script = ExtResource("1_hx38a")
 level_name = "Space level 1"
 next_level = ExtResource("2_4be80")
-
-[node name="Background" type="Sprite2D" parent="."]
 
 [node name="LocationNode" parent="." instance=ExtResource("1_wrkrb")]
 position = Vector2(70, 236)
@@ -58,14 +59,17 @@ encounter_image = ExtResource("8_a2aru")
 [node name="LocationNode8" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(511, 145)
 departures = [NodePath("../LocationNode7")]
+event = ExtResource("10_64jaq")
 
 [node name="LocationNode9" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(509, 333)
 departures = [NodePath("../LocationNode7")]
+event = ExtResource("10_64jaq")
 
 [node name="LocationNode3" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(150, 143)
 departures = [NodePath("../LocationNode")]
+event = ExtResource("10_64jaq")
 
 [node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]
 position = Vector2(591, 235)
@@ -76,5 +80,12 @@ is_final_node = true
 speed = 0.1
 
 [node name="UI" parent="." instance=ExtResource("5_b6kij")]
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+material = ExtResource("3_jkjgv")
+scale = Vector2(640, 480)
+texture = ExtResource("13_fy2mq")
 
 [connection signal="destination_reached" from="SpacePlayer" to="." method="_on_space_player_destination_reached"]

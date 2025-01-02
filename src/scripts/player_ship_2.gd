@@ -107,20 +107,19 @@ func take_damage(damage : int, fuel_lost : bool = false) -> void:
 	if !hit_invulnerability:
 		hit_invulnerability = true
 		PlayerHitbox.set_deferred("monitoring",false)
-		# *** TODO *** Implement damage properly when merging
-		G.player_data.hull -= damage
+		ResourceManager.add_health(-damage)
 		if fuel_lost:
-			G.player_data.fuel-=1
+			ResourceManager.add_fuel(-1)
 		
 		ShaderAnimationPlayer.play("damage_taken")
 		DamagePlayer.play()
 		
 		# *** TODO *** Delete this print when UI is implemented
-		print("Damage taken. Health: ", G.player_data.hull, " Fuel:", G.player_data.fuel)
+		print("Damage taken. Health: ", ResourceManager.get_health(), " Fuel:", ResourceManager.get_fuel())
 		
-		if (G.player_data.hull <= 0):
+		if (ResourceManager.get_health() <= 0):
 			ship_destroyed.emit()
-		if (G.player_data.fuel <= 0):
+		if (ResourceManager.get_fuel() <= 0):
 			ship_out_of_fuel.emit()
 	
 		InvulTimer.start()

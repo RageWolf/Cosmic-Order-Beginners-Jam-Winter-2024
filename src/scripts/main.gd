@@ -25,7 +25,7 @@ enum RuneType {
 }
 
 # Paths to resource folders
-const SHADER_FOLDER = "res://Shaders/"
+const SHADER_FOLDER = "res://Jerry/Shaders/"
 const NOISE_TEXTURE_FOLDER = "res://Textures/Noise/"
 const RUNE_TEXTURE_FOLDER = "res://Textures/Runes/"
 
@@ -41,7 +41,7 @@ func _ready():
 
 # Function to load shaders from the Shaders folder
 func load_shaders():
-	var dir = DirAccess.open("res://Shader/")
+	var dir = DirAccess.open(SHADER_FOLDER)
 	if dir.error != OK:
 		push_error("Failed to open shader folder: " + SHADER_FOLDER)
 		return

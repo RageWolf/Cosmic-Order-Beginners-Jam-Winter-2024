@@ -9,8 +9,10 @@ class_name LocationNode
 @export var encounter_image: CompressedTexture2D
 
 var player_present: bool = false
+@onready var Sprite : Sprite2D = $Sprite2D
 
 func _ready() ->void:
+	Sprite.frame = randi_range(0,1)
 	show_paths()
 
 func _process(delta: float) -> void:
