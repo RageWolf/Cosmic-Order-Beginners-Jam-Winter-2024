@@ -1,16 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://fauei1kt6xix"]
+[gd_scene load_steps=4 format=3 uid="uid://fauei1kt6xix"]
 
 [ext_resource type="Script" path="res://src/scripts/ui.gd" id="1_txh5m"]
 [ext_resource type="Texture2D" uid="uid://dygtxjlx5xtvh" path="res://PNG/money icon.png" id="2_st8wr"]
+[ext_resource type="PackedScene" uid="uid://dtwhsm6snbn3i" path="res://Jerry/Shader/ui_shader.tscn" id="2_vl14g"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_txh5m")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = -2.0
-offset_top = 436.0
-offset_right = 295.0
-offset_bottom = 483.0
+modulate = Color(0.282353, 0.360784, 0.301961, 1)
+self_modulate = Color(0.282353, 0.360784, 0.301961, 1)
+visibility_layer = 65537
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 297.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Ui_Shader" parent="Panel" instance=ExtResource("2_vl14g")]
+layout_mode = 1
 
 [node name="FuelContainer" type="HBoxContainer" parent="."]
 offset_left = 7.0

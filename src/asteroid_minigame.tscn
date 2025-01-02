@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkwc06vasxl2t"]
+[gd_scene load_steps=10 format=3 uid="uid://bkwc06vasxl2t"]
 
 [ext_resource type="Script" path="res://src/scripts/asteroid_minigame.gd" id="1_ow8g8"]
 
@@ -10,24 +10,61 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_np4x8"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8d06e"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6cdg2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y834l"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w61it"]
+
 [node name="AsteroidMinigame" type="Node2D"]
 script = ExtResource("1_ow8g8")
 
-[node name="Screen Collision" type="StaticBody2D" parent="."]
+[node name="ScreenCollision" type="StaticBody2D" parent="."]
+collision_mask = 0
 
-[node name="ScreenBorderUp" type="CollisionShape2D" parent="Screen Collision"]
+[node name="ScreenBorderUp" type="CollisionShape2D" parent="ScreenCollision"]
 rotation = -3.14159
 shape = SubResource("WorldBoundaryShape2D_jgd44")
 
-[node name="ScreenBorderDown" type="CollisionShape2D" parent="Screen Collision"]
+[node name="ScreenBorderDown" type="CollisionShape2D" parent="ScreenCollision"]
 position = Vector2(0, 480)
 shape = SubResource("WorldBoundaryShape2D_8w7rq")
 
-[node name="ScreenBorderLeft" type="CollisionShape2D" parent="Screen Collision"]
+[node name="ScreenBorderLeft" type="CollisionShape2D" parent="ScreenCollision"]
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_t6cu8")
 
-[node name="ScreenBorderRight" type="CollisionShape2D" parent="Screen Collision"]
+[node name="ScreenBorderRight" type="CollisionShape2D" parent="ScreenCollision"]
 position = Vector2(640, 0)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_np4x8")
+
+[node name="OutOfBoundsBorder" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 14
+
+[node name="OutOfBoundsLeft" type="CollisionShape2D" parent="OutOfBoundsBorder"]
+position = Vector2(-64, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_8d06e")
+
+[node name="OutOfBoundsUp" type="CollisionShape2D" parent="OutOfBoundsBorder"]
+position = Vector2(0, -64)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_6cdg2")
+
+[node name="OutOfBoundsDown" type="CollisionShape2D" parent="OutOfBoundsBorder"]
+position = Vector2(0, 544)
+shape = SubResource("WorldBoundaryShape2D_y834l")
+
+[node name="OutOfBoundsRight" type="CollisionShape2D" parent="OutOfBoundsBorder"]
+position = Vector2(768, 0)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_w61it")
+
+[node name="LevelTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AsteroidTimer" type="Timer" parent="."]

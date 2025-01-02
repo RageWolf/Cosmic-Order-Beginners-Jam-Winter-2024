@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Idle_Star_Parameters" load_steps=3 format=3 uid="uid://dyuo6c85yqais"]
+
+[ext_resource type="Script" path="res://Jerry/Shader_Peramiters/Star_Shader_Parameters/idle_star_peramiters.gd" id="1_pe8ke"]
+[ext_resource type="Texture2D" uid="uid://uag01y1chy0u" path="res://PNG/sa.png" id="2_cxif3"]
+
+[resource]
+script = ExtResource("1_pe8ke")
+screen_size = Vector2(640, 480)
+star_texture = ExtResource("2_cxif3")
+base_blink_speed = 1.0
+base_glow_intensity = 1.0
+star_density = 0.2
+scroll_speed = Vector2(1, 0.2)
+randomness_seed = 0.5
+min_blink_speed = 0.5
+max_blink_speed = 2.0

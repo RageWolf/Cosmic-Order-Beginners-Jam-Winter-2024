@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Warp_Star_Parameters" load_steps=3 format=3 uid="uid://b66633wi5dk60"]
+
+[ext_resource type="Script" path="res://Jerry/Shader_Peramiters/Star_Shader_Parameters/warp_star_parameters.gd" id="1_fmptp"]
+[ext_resource type="Texture2D" uid="uid://uag01y1chy0u" path="res://PNG/sa.png" id="2_8q64c"]
+
+[resource]
+script = ExtResource("1_fmptp")
+screen_size = Vector2(640, 480)
+star_texture = ExtResource("2_8q64c")
+base_blink_speed = 1.0
+base_glow_intensity = 1.0
+star_density = 0.2
+scroll_speed = Vector2(1, 0.2)
+randomness_seed = 0.5
+min_blink_speed = 0.5
+max_blink_speed = 2.0

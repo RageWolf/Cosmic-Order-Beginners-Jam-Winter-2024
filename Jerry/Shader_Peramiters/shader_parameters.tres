@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ShaderParameters" load_steps=2 format=3 uid="uid://jyc4jmunwyll"]
+
+[sub_resource type="GDScript" id="GDScript_j3ra1"]
+script/source = "@tool
+extends Resource
+class_name ShaderParameters
+
+# Base Resource Class for Shaders. Will store avalable peramiters that can be changed and 
+# stored to have preset peramiters. 
+
+
+# Export Parameters. 
+@export var base_blink_speed: float = 1.0
+@export var base_glow_intensity: float = 1.0
+@export var star_density: float = 0.2
+@export var density: float = 0.2
+@export var scroll_speed: Vector2 = Vector2(1.0, 0.5)
+@export var randomness_seed: float = 1.0
+@export var min_blink_speed: float = 0.5
+@export var max_blink_speed: float = 2.0
+"
+
+[resource]
+script = SubResource("GDScript_j3ra1")
+base_blink_speed = 1.0
+base_glow_intensity = 1.0
+star_density = 0.2
+density = 0.2
+scroll_speed = Vector2(1, 0.5)
+randomness_seed = 1.0
+min_blink_speed = 0.5
+max_blink_speed = 2.0
