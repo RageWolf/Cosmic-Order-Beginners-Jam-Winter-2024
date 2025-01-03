@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var json = JSON.new()
 @onready var file = FileAccess.get_file_as_string("res://src/encounters.json")
 var option_scene = preload("res://src/encounter_option.tscn")
@@ -9,6 +8,8 @@ var encounter
 var flag = 1
 @onready var main_text: RichTextLabel = $EncounterUI/VBoxContainer/MainText
 var text_displaying = ""
+var changing_scene = false
+var target_scene : PackedScene = null
 
 var text_timer = 0
 var text_interval = 0.01
@@ -43,6 +44,9 @@ func _process(delta: float) -> void:
 						label.text = text
 						$EncounterUI/VBoxContainer/Outcomes.add_child(label)
 						process_outcomes(key, int(outcome[key]))
+				if encounter[str(flag)].has("scene"):
+					self.target_scene = load(encounter[str(flag)]["scene"])
+					changing_scene = true
 				picking_options = true
 			if encounter[str(flag)].has("options"):
 				picking_options = true
@@ -67,7 +71,10 @@ func _on_option_pressed(option_flag):
 
 
 func _on_continue_pressed() -> void:
-	get_tree().change_scene_to_packed(G.current_level)
+	if changing_scene && target_scene != null:
+		get_tree().change_scene_to_packed(target_scene)
+	else:
+		get_tree().change_scene_to_packed(G.current_level)
 
 
 

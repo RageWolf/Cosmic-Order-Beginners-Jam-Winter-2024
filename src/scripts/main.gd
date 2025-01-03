@@ -34,14 +34,22 @@ var shaders = {}
 var noise_textures = {}
 var rune_textures = {}
 
+# Preloading Main menu scene
+@onready var menu_scene : PackedScene = preload("res://src/main_menu.tscn")
+
 func _ready():
 	load_shaders()
 	load_noise_textures()
 	load_rune_textures()
-
+	self.add_child(menu_scene.instantiate())
+	
 # Function to load shaders from the Shaders folder
 func load_shaders():
 	var dir = DirAccess.open(SHADER_FOLDER)
+	
+	if (dir == null):
+		return
+	
 	if dir.error != OK:
 		push_error("Failed to open shader folder: " + SHADER_FOLDER)
 		return
@@ -67,12 +75,20 @@ func load_shaders():
 # Function to load noise textures from the Noise folder
 func load_noise_textures():
 	var dir = DirAccess.open(NOISE_TEXTURE_FOLDER)
+	
+	if (dir == null):
+		return
+	
 	if dir.error != OK:
 		push_error("Failed to open noise texture folder: " + NOISE_TEXTURE_FOLDER)
 		return
 	
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
+	
+	if (dir == null):
+		return
+	
 	while file_name:
 		if file_name.endswith(".png") or file_name.endswith(".jpg") or file_name.endswith(".jpeg"):
 			var texture_path = NOISE_TEXTURE_FOLDER + file_name
@@ -91,6 +107,10 @@ func load_noise_textures():
 # Function to load rune textures from the Runes folder
 func load_rune_textures():
 	var dir = DirAccess.open(RUNE_TEXTURE_FOLDER)
+	
+	if (dir == null):
+		return
+	
 	if dir.error != OK:
 		push_error("Failed to open rune texture folder: " + RUNE_TEXTURE_FOLDER)
 		return

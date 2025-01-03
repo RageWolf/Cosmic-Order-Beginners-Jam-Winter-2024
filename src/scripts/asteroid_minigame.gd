@@ -32,6 +32,7 @@ func _ready() -> void:
 	state_update()
 	
 func state_update() -> void:
+	print(level_state)
 	match level_state:
 		LevelState.Starting:
 			# *** TODO *** Implement tutorial
@@ -39,7 +40,7 @@ func state_update() -> void:
 			LevelTimer.set_wait_time(5)
 			LevelTimer.start()
 		LevelState.InProgress:
-			LevelTimer.set_wait_time(10)
+			LevelTimer.set_wait_time(90)
 			LevelTimer.start()
 			AsteroidTimer.start()
 		LevelState.Finished:

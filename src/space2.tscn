@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj3chirbqe5ej"]
+[gd_scene load_steps=11 format=3 uid="uid://dj3chirbqe5ej"]
 
 [ext_resource type="Script" path="res://src/scripts/space.gd" id="1_m4aiq"]
 [ext_resource type="Material" uid="uid://8t5ls5ufe1ly" path="res://Jerry/Test_World/stars.tres" id="2_3y3ab"]
 [ext_resource type="PackedScene" uid="uid://cwvebe2fhtxxe" path="res://src/location_node.tscn" id="2_8xt1u"]
-[ext_resource type="PackedScene" uid="uid://bkwc06vasxl2t" path="res://src/asteroid_minigame.tscn" id="3_2a1fj"]
+[ext_resource type="PackedScene" uid="uid://5t08hntggvf1" path="res://src/encounter.tscn" id="3_4jl5y"]
 [ext_resource type="PackedScene" uid="uid://1pgur1vtdyjv" path="res://src/space_player.tscn" id="3_mm0ol"]
+[ext_resource type="Texture2D" uid="uid://rha5xufat2rc" path="res://src/placeholder/comet.png" id="4_1j463"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="4_k6wwj"]
+[ext_resource type="Texture2D" uid="uid://be7xnt0pbo55v" path="res://PNG/broken satelite.png" id="5_nw66y"]
+[ext_resource type="PackedScene" uid="uid://75kprkj21umn" path="res://src/shop.tscn" id="6_ek17g"]
 [ext_resource type="Texture2D" uid="uid://dfo2sqoypty1p" path="res://PNG/black_pixel.png" id="6_yuuha"]
 
 [node name="Space" type="Node2D"]
@@ -18,31 +21,38 @@ position = Vector2(61, 91)
 [node name="Planet Butt Heads" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(159, 197)
 departures = [NodePath("../LocationNode")]
+event = ExtResource("3_4jl5y")
+encounter = "1-4"
+encounter_image = ExtResource("4_1j463")
 
 [node name="LocationNode4" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(214, 72)
 departures = [NodePath("../LocationNode")]
-event = ExtResource("3_2a1fj")
+event = ExtResource("3_4jl5y")
+encounter = "1-2"
+encounter_image = ExtResource("5_nw66y")
 
 [node name="LocationNode6" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(213, 306)
 departures = [NodePath("../Planet Butt Heads")]
-event = ExtResource("3_2a1fj")
+event = ExtResource("6_ek17g")
 
 [node name="LocationNode7" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(330, 190)
 departures = [NodePath("../Planet Butt Heads")]
-event = ExtResource("3_2a1fj")
+event = ExtResource("6_ek17g")
 
 [node name="LocationNode9" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(340, 378)
 departures = [NodePath("../LocationNode6")]
-event = ExtResource("3_2a1fj")
+event = ExtResource("3_4jl5y")
+encounter = "2"
 
 [node name="LocationNode10" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(472, 282)
 departures = [NodePath("../LocationNode7")]
-event = ExtResource("3_2a1fj")
+event = ExtResource("3_4jl5y")
+encounter = "2"
 
 [node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("2_8xt1u")]
 position = Vector2(514, 386)

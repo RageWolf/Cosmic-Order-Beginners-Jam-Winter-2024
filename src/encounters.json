@@ -126,5 +126,12 @@
 				{"Days": "-1"}
 			]
 		}
-	}
+	},
+	"2": {
+		"1": {
+			"text": "Alert! Heavy Asteroid cluster detected. Collision imminent. Asteroid Defence Cannon's standing by for manual targeting.",
+			"flag": "-1",
+			"scene": "res://src/asteroid_minigame.tscn"
+		}
+	},
 }
