@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5t08hntggvf1"]
+[gd_scene load_steps=11 format=3 uid="uid://5t08hntggvf1"]
 
 [ext_resource type="Script" path="res://src/scripts/encounter.gd" id="1_1a65w"]
 [ext_resource type="PackedScene" uid="uid://fauei1kt6xix" path="res://src/ui.tscn" id="1_8tx74"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/scripts/background.gd" id="5_1fcko"]
 [ext_resource type="Material" uid="uid://8t5ls5ufe1ly" path="res://Jerry/Test_World/stars.tres" id="6_5dngu"]
 [ext_resource type="Texture2D" uid="uid://dfo2sqoypty1p" path="res://PNG/black_pixel.png" id="7_x4d0j"]
+[ext_resource type="AudioStream" uid="uid://b723pf54ho31y" path="res://src/audio/music/ambient.ogg" id="9_b7let"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n18ky"]
 shader = ExtResource("2_bj31o")
@@ -40,8 +41,8 @@ script = ExtResource("5_1fcko")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 material = ExtResource("6_5dngu")
-position = Vector2(4.76837e-07, -3.8147e-06)
-scale = Vector2(640, 177)
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(640, 140)
 texture = ExtResource("7_x4d0j")
 
 [node name="UI" parent="." instance=ExtResource("1_8tx74")]
@@ -93,5 +94,9 @@ theme_override_constants/margin_top = 12
 visible = false
 layout_mode = 2
 text = "Continue"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_b7let")
+autoplay = true
 
 [connection signal="pressed" from="EncounterUI/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

@@ -9,6 +9,7 @@ const AsteroidSpawnArea : Vector2 = Vector2(32,464)
 
 @onready var LevelTimer : Timer = $LevelTimer
 @onready var AsteroidTimer : Timer = $AsteroidTimer
+@onready var GameOverMusic : AudioStreamPlayer2D = $GameOverMusic
 @onready var level_state = LevelState.Starting
 var min_velocity : float = 40.0
 var max_velocity : float = 100.0
@@ -49,8 +50,8 @@ func state_update() -> void:
 			get_tree().change_scene_to_packed(G.current_level)
 		LevelState.GameOver:
 			# *** TODO *** Implement game over screen
-			AsteroidTimer.stop()
-			print("Game Over")
+			GameOverMusic.play()
+			get_tree().paused = true
 		_:
 			pass
 

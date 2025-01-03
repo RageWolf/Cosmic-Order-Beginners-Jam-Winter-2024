@@ -1,4 +1,21 @@
 {
+	"0": {
+		"1": {
+			"text": "From: Bifrost inc.\nGreetings Employee number 477651236!\nCongratulations on your promotion to Captain of your very own Freighter! You're really moving up in the universe!\n\nAs the Captain of the Sisyphus, it is your responsibility to make sure that our clients receive their packages on time, so make sure that while in transit you make the best choice possible for your order.\n\nGood luck out there! and remember, you're a part of the Bifrost Family!\nBifrost - Linking the cosmos, one package at a time\n\n - Management",
+			"flag": "1",
+			"options": [
+				{
+					"text": "See package",
+					"flag": "2"
+				}
+			]
+		},
+		"2": {
+			"text": "Package details: 400 Million pounds of Steel Support Beams\n\nInfo:\nWe're building a new housing station to address overpopulation in the Alpha Centauri System and we need more Steel Support Beams. Get these to us ASAP.\nMiller Carpentry\n\nTime to get to destination 9 days",
+			"flag": "-1",
+			"scene": "res://src/space.tscn"
+		}	
+	},
 	"1-1": {
 		"1": {
 			"text": "Scanners indicate that there might be a shorter passage through a black hole, but it looks unstable.",

@@ -1,4 +1,4 @@
-extends Node2D
+class_name Encounter extends Node2D
 
 var json = JSON.new()
 @onready var file = FileAccess.get_file_as_string("res://src/encounters.json")
@@ -57,7 +57,6 @@ func _process(delta: float) -> void:
 					option_label.get_node("Text").pressed.connect(_on_option_pressed.bind(option["flag"]))
 					$EncounterUI/VBoxContainer/Options.add_child(option_label)
 					index += 1
-
 
 func _on_option_pressed(option_flag):
 	picking_options = false

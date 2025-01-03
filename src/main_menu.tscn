@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw1ep5e6iwamp"]
+[gd_scene load_steps=5 format=3 uid="uid://cw1ep5e6iwamp"]
 
 [ext_resource type="PackedScene" uid="uid://ccro4c72tktej" path="res://src/background.tscn" id="1_2m60r"]
+[ext_resource type="Script" path="res://src/scripts/main_menu.gd" id="1_jejn1"]
+[ext_resource type="AudioStream" uid="uid://csrun0g84bob8" path="res://src/audio/music/menu-loop-filter.ogg" id="3_cmbpv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0bid"]
+font_size = 32
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,7 +14,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jejn1")
 
 [node name="Background" parent="." instance=ExtResource("1_2m60r")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 208.0
+offset_right = 390.0
+offset_bottom = 239.0
+text = "Start"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+offset_left = 201.0
+offset_top = 113.0
+offset_right = 439.0
+offset_bottom = 158.0
+text = "COSMIC ORDER
+"
+label_settings = SubResource("LabelSettings_i0bid")
+
+[node name="Background music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cmbpv")
+autoplay = true

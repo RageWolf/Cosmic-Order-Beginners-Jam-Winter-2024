@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://mjakgm2dieik"]
+
+[ext_resource type="Script" path="res://src/scripts/ui_asteroid.gd" id="1_rabs4"]
+[ext_resource type="PackedScene" uid="uid://dtwhsm6snbn3i" path="res://Jerry/Shader/ui_shader.tscn" id="2_jatan"]
+[ext_resource type="Texture2D" uid="uid://psmw243ouskt" path="res://PNG/ship health icon.png" id="3_ke1kf"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_rabs4")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.282353, 0.360784, 0.301961, 1)
+self_modulate = Color(0.282353, 0.360784, 0.301961, 1)
+visibility_layer = 65537
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+offset_right = 344.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Ui_Shader" parent="Panel" instance=ExtResource("2_jatan")]
+layout_mode = 1
+
+[node name="FuelContainer" type="HBoxContainer" parent="."]
+offset_left = 7.0
+offset_top = 436.0
+offset_right = 47.0
+offset_bottom = 476.0
+
+[node name="Label" type="Label" parent="FuelContainer"]
+layout_mode = 2
+text = "Fuel
+"
+
+[node name="Fuel" type="Label" parent="FuelContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="HullBar" type="ProgressBar" parent="."]
+offset_left = 103.0
+offset_top = 443.0
+offset_right = 336.0
+offset_bottom = 470.0
+
+[node name="TextureRect" type="TextureRect" parent="HullBar"]
+layout_mode = 2
+offset_left = -30.0
+offset_top = -7.0
+offset_right = 2.0
+offset_bottom = 35.0
+texture = ExtResource("3_ke1kf")
+stretch_mode = 3
