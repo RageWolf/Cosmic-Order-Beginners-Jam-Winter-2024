@@ -74,7 +74,7 @@ encounter_image = ExtResource("7_hpm5d")
 position = Vector2(150, 143)
 departures = [NodePath("../LocationNode")]
 event = ExtResource("4_gdwj1")
-encounter = "2-1"
+encounter = "2"
 encounter_image = ExtResource("7_hpm5d")
 
 [node name="Final Destination" parent="." node_paths=PackedStringArray("departures") instance=ExtResource("1_wrkrb")]

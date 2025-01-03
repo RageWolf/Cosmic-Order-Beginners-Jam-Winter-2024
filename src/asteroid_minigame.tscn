@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkwc06vasxl2t"]
+[gd_scene load_steps=12 format=3 uid="uid://bkwc06vasxl2t"]
 
 [ext_resource type="Script" path="res://src/scripts/asteroid_minigame.gd" id="1_ow8g8"]
 [ext_resource type="Material" uid="uid://8t5ls5ufe1ly" path="res://Jerry/Test_World/stars.tres" id="2_jr6iw"]
+[ext_resource type="Texture2D" uid="uid://dfo2sqoypty1p" path="res://PNG/black_pixel.png" id="3_74o2g"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jgd44"]
 
@@ -72,8 +73,8 @@ one_shot = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+z_index = -1
 material = ExtResource("2_jr6iw")
-offset_right = 640.0
-offset_bottom = 480.0
-color = Color(0, 0, 0, 1)
+scale = Vector2(640, 480)
+texture = ExtResource("3_74o2g")
