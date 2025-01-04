@@ -50,8 +50,9 @@ func state_update() -> void:
 			get_tree().change_scene_to_packed(G.current_level)
 		LevelState.GameOver:
 			# *** TODO *** Implement game over screen
+			AsteroidTimer.stop()
+			Player.queue_free()
 			GameOverMusic.play()
-			get_tree().paused = true
 		_:
 			pass
 

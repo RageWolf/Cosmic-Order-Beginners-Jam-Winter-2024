@@ -6,5 +6,6 @@ func _ready() -> void:
 	$StartButton.connect("pressed", _on_start_pressed_start_game)
 
 func _on_start_pressed_start_game() -> void:
-	print("presed")
-	get_tree().change_scene_to_packed(StartScene)
+	$BackgroundMusic.reparent(get_parent())
+	get_parent().add_child(StartScene.instantiate())
+	queue_free()

@@ -83,7 +83,6 @@ departures = [NodePath("../LocationNode9"), NodePath("../LocationNode8")]
 is_final_node = true
 
 [node name="SpacePlayer" parent="." instance=ExtResource("3_lrwrr")]
-speed = 0.1
 
 [node name="UI" parent="." instance=ExtResource("5_b6kij")]
 

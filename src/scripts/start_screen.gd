@@ -1,5 +1,7 @@
 extends Encounter
 
+# The way this node works is a disaster, moving on...
+
 func _ready() -> void:
 	G.current_encounter = "0"
 	encounters = JSON.parse_string(file)
@@ -20,19 +22,10 @@ func _process(delta : float) -> void:
 		if not picking_options:
 			if encounter[str(flag)]["flag"] == "-1":
 				$EncounterUI/VBoxContainer/Continue.show()
-				if encounter[str(flag)].has("outcomes"):
-					$EncounterUI/VBoxContainer/Outcomes.show()
-					for outcome in encounter[str(flag)]["outcomes"]:
-						var label = Label.new()
-						var text = ""
-						var key = outcome.keys()[0]
-						text =  key +": " + str(outcome[key])
-						label.text = text
-						$EncounterUI/VBoxContainer/Outcomes.add_child(label)
-						process_outcomes(key, int(outcome[key]))
+				$EncounterUI/VBoxContainer/Continue.connect("pressed", _start_level)
 				if encounter[str(flag)].has("scene"):
 					target_scene = load(encounter[str(flag)]["scene"])
-					get_tree().change_scene_to_packed(target_scene)
+					changing_scene = true
 				picking_options = true
 			if encounter[str(flag)].has("options"):
 				picking_options = true
@@ -43,3 +36,7 @@ func _process(delta : float) -> void:
 					option_label.get_node("Text").pressed.connect(_on_option_pressed.bind(option["flag"]))
 					$EncounterUI/VBoxContainer/Options.add_child(option_label)
 					index += 1
+
+func _start_level() -> void:
+	if changing_scene && target_scene != null:
+		get_tree().change_scene_to_packed(target_scene)

@@ -42,6 +42,6 @@ text = "COSMIC ORDER
 "
 label_settings = SubResource("LabelSettings_i0bid")
 
-[node name="Background music" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_cmbpv")
 autoplay = true

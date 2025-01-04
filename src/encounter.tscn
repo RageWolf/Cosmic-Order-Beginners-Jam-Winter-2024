@@ -41,8 +41,8 @@ script = ExtResource("5_1fcko")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 material = ExtResource("6_5dngu")
-position = Vector2(0, -3.8147e-06)
-scale = Vector2(640, 140)
+position = Vector2(1, -3.8147e-06)
+scale = Vector2(639, 197)
 texture = ExtResource("7_x4d0j")
 
 [node name="UI" parent="." instance=ExtResource("1_8tx74")]

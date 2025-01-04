@@ -15,9 +15,9 @@ gravity_scale = 0.0
 linear_damp = 0.5
 script = ExtResource("1_e4w1i")
 projectile_scene = ExtResource("2_6xkug")
+hit_detector = NodePath("HitDetector")
 thrust_force = 10.0
 turn_speed = 30.0
-hit_detector = NodePath("HitDetector")
 fire_rate = NodePath("FireRate")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
